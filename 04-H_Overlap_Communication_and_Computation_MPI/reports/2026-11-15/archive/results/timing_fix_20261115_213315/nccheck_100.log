@@ -1,0 +1,26 @@
+srun: job 2923936 queued and waiting for resources
+srun: job 2923936 has been allocated resources
+Single GPU jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 100 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535684
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235509
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+Jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 100 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535685
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235510
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+Num GPUs: 4.
+16384x16384: 1 GPU:   1.1891 s, 4 GPUs:   0.3038 s, speedup:     3.91, efficiency:    97.84 

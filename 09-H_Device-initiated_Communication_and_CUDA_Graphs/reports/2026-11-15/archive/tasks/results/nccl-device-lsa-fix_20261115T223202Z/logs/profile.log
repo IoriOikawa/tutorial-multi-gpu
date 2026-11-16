@@ -1,0 +1,31 @@
+salloc: Granted job allocation 2925735
+salloc: Waiting for resource configuration
+salloc: Nodes jpbo-003-46 are ready for job
+Single GPU jacobi relaxation: 10 iterations on 16384 x 16384 mesh with norm check every 10 iterations
+    0, 31.999022
+Jacobi relaxation: 10 iterations on 16384 x 16384 mesh with norm check every 10 iterations
+    0, 31.999006
+Num GPUs: 4.
+16384x16384: 1 GPU:   0.0171 s, 4 GPUs:   0.0036 s, speedup:     4.69, efficiency:   117.25 
+Collecting data...
+Generating '/tmp/nsys-wang108/nsys-report-f41f.qdstrm'
+[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [1%                          ] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [3%                          ] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [======35%                   ] trace_g04_it0010_nc010_r01.rank3.nsys-repCollecting data...
+Generating '/tmp/nsys-wang108/nsys-report-ad8a.qdstrm'
+[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [====================85%     ] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [========================98% ] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [========================99% ] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank3.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank3.nsys-rep
+Collecting data...
+Generating '/tmp/nsys-wang108/nsys-report-e268.qdstrm'
+[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank0.nsys-repGenerated:
+	/e/home/jusers/wang108/jupiter/SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/../results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank3.nsys-rep
+[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [1%                          ] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [3%                          ] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [======35%                   ] trace_g04_it0010_nc010_r01.rank2.nsys-repCollecting data...
+Generating '/tmp/nsys-wang108/nsys-report-5ca1.qdstrm'
+[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [1%                          ] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [3%                          ] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [======35%                   ] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [====================85%     ] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [========================98% ] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [========================99% ] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank2.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank2.nsys-rep
+[1/1] [0%                          ] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [1%                          ] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [3%                          ] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [======35%                   ] trace_g04_it0010_nc010_r01.rank1.nsys-repGenerated:
+	/e/home/jusers/wang108/jupiter/SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/../results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank2.nsys-rep
+[1/1] [====================85%     ] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [========================98% ] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [========================99% ] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank0.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank0.nsys-rep
+Generated:
+	/e/home/jusers/wang108/jupiter/SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/../results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank0.nsys-rep
+[1/1] [====================85%     ] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [========================98% ] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [========================99% ] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank1.nsys-rep[1/1] [========================100%] trace_g04_it0010_nc010_r01.rank1.nsys-rep
+Generated:
+	/e/home/jusers/wang108/jupiter/SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/../results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank1.nsys-rep
+salloc: Relinquishing job allocation 2925735
+salloc: Job allocation 2925735 has been revoked.

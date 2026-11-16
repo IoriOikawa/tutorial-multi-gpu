@@ -1,0 +1,18 @@
+# command: srun -N 1 --cpu-bind=verbose\,sockets --unbuffered -n 4 bash -c printf\ \"\[placement\]\ job=%s\ step=%s\ rank=%s\ host=%s\ CUDA_VISIBLE_DEVICES=%s\ \"\ \"\$\{SLURM_JOB_ID:-\?\}\"\ \"\$\{SLURM_STEP_ID:-\?\}\"\ \"\$\{SLURM_PROCID:-\?\}\"\ \"\$\(hostname\)\"\ \"\$\{CUDA_VISIBLE_DEVICES:-unset\}\"\;\ grep\ Cpus_allowed_list\ /proc/self/status\;\ exec\ \"\$@\" _ ./jacobi -nx 261 -ny 259 -niter 3 -nccheck 3 -scalar_1d 
+# start UTC: 2026-11-16T03:56:30Z
+cpu_bind=SOCKETS - jpbo-101-01, task  0  0 [3323088]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-101-01, task  2  2 [3323087]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-01, task  1  1 [3323090]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-01, task  3  3 [3323089]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+[placement] job=2928756 step=10 rank=1 host=jpbo-101-01.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 [placement] job=2928756 step=10 rank=3 host=jpbo-101-01.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 Cpus_allowed_list:	72-143
+[placement] job=2928756 step=10 rank=0 host=jpbo-101-01.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 [placement] job=2928756 step=10 rank=2 host=jpbo-101-01.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 Cpus_allowed_list:	216-287
+Cpus_allowed_list:	0-71
+Cpus_allowed_list:	144-215
+Single GPU jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+nvshmem_device_scalar_1d Jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+Num GPUs: 4.
+259x261: 1 GPU:   0.0001 s, 4 GPUs:   0.0004 s, speedup:     0.29, efficiency:     7.34 
+Rank 0 solver time: 0.000370 s; max rank solver time: 0.000372 s
+# end UTC: 2026-11-16T03:56:42Z; exit code: 0; validation: PASS

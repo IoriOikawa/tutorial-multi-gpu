@@ -1,0 +1,1419 @@
+{
+  "archive": "SC26-Multi-GPU-Tutorial_COMPLETE_20261116T041055Z.tar.gz",
+  "archive_sha256": "2f6feec5cd6d83c84b7d238bc67f589f49ee284802c10347faaa5b58e577ed8b",
+  "tutorial_base_commit": "cd34f9d40d600efd8d84e433b1a9e84ab5eff5f3",
+  "experiment_day": "2026-11-15",
+  "experiment_timezone": "America/Chicago",
+  "utc_note": "Some original names use 20261116T03...Z, which is still 2026-11-15 in Chicago. Original names and contents are preserved.",
+  "copied_file_count": 234,
+  "copied_bytes": 48056397,
+  "profile_count": 56,
+  "profile_group_count": 14,
+  "excluded": "Compiled executables and objects; duplicate nested tarball; notebooks without saved outputs; unchanged lecture materials and solutions.",
+  "files": [
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NCCL/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/Instructions.md",
+      "bytes": 2963,
+      "sha256": "84985902e5a673b2d7482254eb14a2f5baef88e27aa53ba38233065a62f0712e"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NCCL/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/Makefile",
+      "bytes": 2055,
+      "sha256": "6f333ca692766107eeaf4b698662e12539ab6e7700c5bf5305bebc134323a625"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NCCL/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/jacobi.cpp",
+      "bytes": 25682,
+      "sha256": "c6aa84dabec3cfd2d53a08bb524c3c5c753990c58e93228cd6f76e62459ab2d1"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NCCL/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/jacobi_kernels.cu",
+      "bytes": 15973,
+      "sha256": "8fb5a1608a0f7e4b89130cd06112e06838930f7007f785b666e4f212848038c6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NCCL/run_nvshmem_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NCCL/run_nvshmem_experiment.sh",
+      "bytes": 6514,
+      "sha256": "f09f182dab58169f453fc61b966ccfa08ced32f8bb1953ee5140c2f30ba13317"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NVSHMEM/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NVSHMEM/Instructions.md",
+      "bytes": 3082,
+      "sha256": "72077ac3eaccbb880a8545732b85de6064a417098be603b48683ec1b1f66a586"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NVSHMEM/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NVSHMEM/Makefile",
+      "bytes": 2115,
+      "sha256": "71b42fddf9044baf035893a11819d1015b0e38c01f729e28d9b68042bbedb612"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NVSHMEM/jacobi.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NVSHMEM/jacobi.cu",
+      "bytes": 26981,
+      "sha256": "ebae5c7705dd72cb2d19790a1861d742e6a95fcc0c1d2383ecf11bd974e7c685"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Device-initiated_Communication_with_NVSHMEM/run_experiment_v3.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Device-initiated_Communication_with_NVSHMEM/run_experiment_v3.sh",
+      "bytes": 9391,
+      "sha256": "6489232842c7210a1c0c24a1b53b8d9f82782a6e63031163484bde4d874e34f6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Using_CUDA_Graphs/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Using_CUDA_Graphs/Instructions.md",
+      "bytes": 2938,
+      "sha256": "732737d531ec3fd36a0498a22ad086ef4dea22ffe83ac97ee0af1f524019800d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Using_CUDA_Graphs/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Using_CUDA_Graphs/Makefile",
+      "bytes": 1916,
+      "sha256": "b130c7524cb0cbcb13b619034b6b68c34d4577dc6c785c4c9f63e452a4f4189f"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Using_CUDA_Graphs/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Using_CUDA_Graphs/jacobi.cpp",
+      "bytes": 26453,
+      "sha256": "8d10f206902ccd459b8fe0257ca1a371f7e5279ec04f8df6c5f29e229b93a4d2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Using_CUDA_Graphs/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Using_CUDA_Graphs/jacobi_kernels.cu",
+      "bytes": 5300,
+      "sha256": "7e51645452e3f51f8141bf00e88276e14d1b7291d5e3093fdf8bf024e1c64089"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Using_CUDA_Graphs/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Using_CUDA_Graphs/run_experiment.sh",
+      "bytes": 7419,
+      "sha256": "998d1354f0bfabf7bf33100cbba0d13042c25cdf0b99ad0b7431902da1a77ab4"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/Using_CUDA_Graphs/run_nvshmem_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/Using_CUDA_Graphs/run_nvshmem_experiment.sh",
+      "bytes": 6514,
+      "sha256": "f09f182dab58169f453fc61b966ccfa08ced32f8bb1953ee5140c2f30ba13317"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/README.md",
+      "bytes": 1300,
+      "sha256": "75371cb23a812bad63a1117e2a04ab509e817cbe60b6720fdda0864d6d3e197a"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/environment/build_and_job.txt",
+      "bytes": 2512,
+      "sha256": "f218b322f86e0948fedfe355ead80822ac3b0eb827debbbefea836ebcfec6dd5"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/environment/compute_node.txt",
+      "bytes": 162,
+      "sha256": "30b76afbfcd4010d249f6f774edf46899d28465ec2bde8722735ea9c53a47183"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/environment/ldd.txt",
+      "bytes": 2777,
+      "sha256": "7429b19c6c86a16553b6896973817fda737ee991be71ccd1490cfd5280d3c038"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 685,
+      "sha256": "dbb844686521a679e395721e84d504e12d25532f13a443d0c367ba7c821b66c2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 686,
+      "sha256": "9d6cb6c0c485c017fce78adaad4af04f8314c92ac5e5776b926935c25fca13ca"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/build.log",
+      "bytes": 421,
+      "sha256": "ebb3ac19abeb93cac0dea0d2c24f2d8e85d90c215188cbe6a551e08e5d4aa709"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "bytes": 1037,
+      "sha256": "c95dbe1e7cf961e6946d14d2c523beb99a9a2d6c64c8e38704ff52e177129040"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/runs.tsv",
+      "bytes": 387,
+      "sha256": "f2730f33a38e06857294edfc0602df159d15c15be772350c2cb53e50d79391a8"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/Instructions.md",
+      "bytes": 2938,
+      "sha256": "732737d531ec3fd36a0498a22ad086ef4dea22ffe83ac97ee0af1f524019800d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/Makefile",
+      "bytes": 1916,
+      "sha256": "b130c7524cb0cbcb13b619034b6b68c34d4577dc6c785c4c9f63e452a4f4189f"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/jacobi.cpp",
+      "bytes": 26453,
+      "sha256": "8d10f206902ccd459b8fe0257ca1a371f7e5279ec04f8df6c5f29e229b93a4d2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/jacobi_kernels.cu",
+      "bytes": 5300,
+      "sha256": "7e51645452e3f51f8141bf00e88276e14d1b7291d5e3093fdf8bf024e1c64089"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source/run_experiment.sh",
+      "bytes": 7419,
+      "sha256": "998d1354f0bfabf7bf33100cbba0d13042c25cdf0b99ad0b7431902da1a77ab4"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/source.sha256",
+      "bytes": 574,
+      "sha256": "c470635eaf6f32d2db51a32c8b99f8f75c0f115fc3adc27c185051223e443548"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/summary.txt",
+      "bytes": 62,
+      "sha256": "f5a44a1abc5972eb1f0d241bfd54380b43297703598ad5bc460f45b431559405"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/README.md",
+      "bytes": 1300,
+      "sha256": "bb7e5f3becc60d2e76955830e467e122fa9db07bb76446645554faee527a2e13"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/environment/build_and_job.txt",
+      "bytes": 2512,
+      "sha256": "9c3cc8854a151eb7118edf4dc8affdd48a0dbe84d786f32018ece3549abc4c07"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/environment/compute_node.txt",
+      "bytes": 162,
+      "sha256": "30b76afbfcd4010d249f6f774edf46899d28465ec2bde8722735ea9c53a47183"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/environment/ldd.txt",
+      "bytes": 2777,
+      "sha256": "cade6ed8c083c32a1505729eb01a61f9a36dc2f4410b3e29b6c5106ed730a48d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 703,
+      "sha256": "d2050f61cb9287ed2c83cd0da2754b72a0b66a327a2413a9407f7db7e0d84e63"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 704,
+      "sha256": "e8338543b4a8729566d4e33d039e715a2ada999d404562549f7ecb10eec0c5e1"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/build.log",
+      "bytes": 421,
+      "sha256": "ebb3ac19abeb93cac0dea0d2c24f2d8e85d90c215188cbe6a551e08e5d4aa709"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "bytes": 1055,
+      "sha256": "272e441d078b87b9c262e66a4f0a0949d3d37c141ddad1ca161ff11ff3beebde"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/runs.tsv",
+      "bytes": 387,
+      "sha256": "f71d49eb042f394ecdda3e8bc8ad91b4582d3d1f75de63831add68e42ca40e79"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/Instructions.md",
+      "bytes": 2938,
+      "sha256": "732737d531ec3fd36a0498a22ad086ef4dea22ffe83ac97ee0af1f524019800d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/Makefile",
+      "bytes": 1916,
+      "sha256": "b130c7524cb0cbcb13b619034b6b68c34d4577dc6c785c4c9f63e452a4f4189f"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/jacobi.cpp",
+      "bytes": 26453,
+      "sha256": "8d10f206902ccd459b8fe0257ca1a371f7e5279ec04f8df6c5f29e229b93a4d2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/jacobi_kernels.cu",
+      "bytes": 5300,
+      "sha256": "7e51645452e3f51f8141bf00e88276e14d1b7291d5e3093fdf8bf024e1c64089"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source/run_experiment.sh",
+      "bytes": 7419,
+      "sha256": "998d1354f0bfabf7bf33100cbba0d13042c25cdf0b99ad0b7431902da1a77ab4"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/source.sha256",
+      "bytes": 574,
+      "sha256": "ea9f34b167222bbb79e972a6cb60eb822e277b133afc459d18c3ed7cea9dfbd9"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230049Z_nccl-graph_priority0_upload1_job2925563/summary.txt",
+      "bytes": 62,
+      "sha256": "f5a44a1abc5972eb1f0d241bfd54380b43297703598ad5bc460f45b431559405"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/README.md",
+      "bytes": 954,
+      "sha256": "3f0237a33e598ab446a4efa112568b0f1176079f9809e6f84cf838eb10395464"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/environment/build_and_job.txt",
+      "bytes": 3857,
+      "sha256": "4f140d160266175aaf0e54f21c34e19dcce9e84300aad1ee75f7ef2fec9fd52e"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/environment/compute_node.txt",
+      "bytes": 7890,
+      "sha256": "8b19bd18a8d890f2b861e2ac6a861c9f160e1c617ee924011228b61d1a19088a"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/environment/ldd.txt",
+      "bytes": 2777,
+      "sha256": "5c99d7b471edb6125cf31a72f2976dc9b5b3698ca224e8be0e9fe69c248a4ba3"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 2109,
+      "sha256": "688679ed8b77ed0a688c490e0dff4520336f93860528779b81219aa0fcdbcab7"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 2112,
+      "sha256": "ecf8fd653f45882d577f7b6cce3acdc33ef9591141a55698c30b71e5911bed67"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/build.log",
+      "bytes": 421,
+      "sha256": "ebb3ac19abeb93cac0dea0d2c24f2d8e85d90c215188cbe6a551e08e5d4aa709"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "bytes": 7299,
+      "sha256": "1f9756d5b34c22683bc49c9d8b22e31052a6e30fccd88837875480157c485c74"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "bytes": 761168,
+      "sha256": "c30ed1be8329d1a9075a0fe8af18575328f2f890467f1762ec492a80dc1bca8b"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "bytes": 773976,
+      "sha256": "cdcdd96474b8c96f7aa14fe75c19b88a154acf962bd59090cfd996974da6a80a"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "bytes": 734520,
+      "sha256": "d5caacda75a480b2ddfcf2c8024e79d6dc2d9541e2b08ee1b5ab6d8cd4ecdf46"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "bytes": 774053,
+      "sha256": "5daeaa5e89a34f8979e72783525030cce5cd324447f8865d9c67b1c7a6806bc6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/runs.tsv",
+      "bytes": 387,
+      "sha256": "5a953269735a42d5fea8789178bbfdf2ca43900543f87153c630bc92f8e6ed42"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/Instructions.md",
+      "bytes": 2938,
+      "sha256": "732737d531ec3fd36a0498a22ad086ef4dea22ffe83ac97ee0af1f524019800d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/Makefile",
+      "bytes": 1916,
+      "sha256": "b130c7524cb0cbcb13b619034b6b68c34d4577dc6c785c4c9f63e452a4f4189f"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/jacobi.cpp",
+      "bytes": 26453,
+      "sha256": "8d10f206902ccd459b8fe0257ca1a371f7e5279ec04f8df6c5f29e229b93a4d2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/jacobi_kernels.cu",
+      "bytes": 5300,
+      "sha256": "7e51645452e3f51f8141bf00e88276e14d1b7291d5e3093fdf8bf024e1c64089"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source/run_experiment.sh",
+      "bytes": 7419,
+      "sha256": "998d1354f0bfabf7bf33100cbba0d13042c25cdf0b99ad0b7431902da1a77ab4"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/source.sha256",
+      "bytes": 574,
+      "sha256": "534a1e5a97ae62680556ebccb52da7cc00571a1ce4dc811b304b8211c63bdf7c"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231315Z_nccl-graph_priority1_upload1_job2926183/summary.txt",
+      "bytes": 336,
+      "sha256": "0b69ffd381fa11eef2c19094b975cdb6d55e2f6f1e701112ed79f3ac07c6e4e6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/README.md",
+      "bytes": 954,
+      "sha256": "f1dde4f79a7679267a9944ddda393bb882a071c1823639c3c3e5a341be384551"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/environment/build_and_job.txt",
+      "bytes": 3857,
+      "sha256": "f874afb3a573006e53b1bb011e28cf396461ff00f8db11b64f30ff9f014c2e0d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/environment/compute_node.txt",
+      "bytes": 7890,
+      "sha256": "bbccf17255c80ef0efee1efcc192cdd7c03e8315dfa8dbda59d22a807c9ab3cc"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/environment/ldd.txt",
+      "bytes": 2777,
+      "sha256": "9159b87c567caefa5284abd6908a186ee1f84f838035effe6f63029de97eb0c9"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 2127,
+      "sha256": "fc4defeaa14494407ebc944e85208eea5251065e5b634a8ea1904e2ed49cdd62"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 2130,
+      "sha256": "0245df37b3e17a705aae6278ac948d4e623dcf58d9e79ec81dd0ecf5c3727da7"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/build.log",
+      "bytes": 421,
+      "sha256": "ebb3ac19abeb93cac0dea0d2c24f2d8e85d90c215188cbe6a551e08e5d4aa709"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "bytes": 7317,
+      "sha256": "de3f0573c8e4ce9ae2a29944d9857e52f41ee957a5b51f798fd0bcde47d4a537"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "bytes": 735585,
+      "sha256": "8dcbd237ae57570d0c9976904371defa1fe011d7ea8ea548be4b68e0fdf93c43"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "bytes": 773883,
+      "sha256": "7b8f5e2aa4fd32abdd5244959771fb957f9d3e16d4e700f851ba170793b28037"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "bytes": 773622,
+      "sha256": "dd06ea13300aa3fbecef497ef5478d7a39edbec394f9fecdcb709fd8775373c2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "bytes": 773909,
+      "sha256": "218b96c6a6f3a40032153b6ada6319cbece2c5d108acb6c1d1a3a01a538b784d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/runs.tsv",
+      "bytes": 387,
+      "sha256": "1dd76dde3648af3b81309439718b01e46e188166a10f1b4d4bbc6497eebce881"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/Instructions.md",
+      "bytes": 2938,
+      "sha256": "732737d531ec3fd36a0498a22ad086ef4dea22ffe83ac97ee0af1f524019800d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/Makefile",
+      "bytes": 1916,
+      "sha256": "b130c7524cb0cbcb13b619034b6b68c34d4577dc6c785c4c9f63e452a4f4189f"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/jacobi.cpp",
+      "bytes": 26453,
+      "sha256": "8d10f206902ccd459b8fe0257ca1a371f7e5279ec04f8df6c5f29e229b93a4d2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/jacobi_kernels.cu",
+      "bytes": 5300,
+      "sha256": "7e51645452e3f51f8141bf00e88276e14d1b7291d5e3093fdf8bf024e1c64089"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source/run_experiment.sh",
+      "bytes": 7419,
+      "sha256": "998d1354f0bfabf7bf33100cbba0d13042c25cdf0b99ad0b7431902da1a77ab4"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/source.sha256",
+      "bytes": 574,
+      "sha256": "f0e50d0718af19312ef251c977d93bbc7c60d92077584c1e3dd894b61112aa18"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T231410Z_nccl-graph_priority0_upload1_job2926183/summary.txt",
+      "bytes": 336,
+      "sha256": "16151dec6df88c3bf69f7aec351f6b040fc4724886a95ecfbe8c015a70a916ac"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/README.md",
+      "bytes": 1023,
+      "sha256": "66862e4a3d8ae7f1b8ba9cd6600a33e2218977fc4e61d8377704638dfb0b1ec9"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/environment/build_and_job.txt",
+      "bytes": 3936,
+      "sha256": "0e457203a68a0df3c70c42b0aa16494a36496e0900dd7ab964db0833085540ea"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/environment/compute_node.txt",
+      "bytes": 7890,
+      "sha256": "99bad1ae3706b8ea6fb8e483a81d00ff71348732ccde12f18a99ef02e0090352"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/environment/ldd.txt",
+      "bytes": 2926,
+      "sha256": "bfbb0bfc778410d690425b437151f91f693482df44a526abad95e9f61d55eb9e"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 2185,
+      "sha256": "980b04b3b47777c909db6319d56cefa40d8ef2aa49bc44c59cbff241ef8eb96a"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 2188,
+      "sha256": "94ef6629388fdaae2e35361740e1ee173bfd772c08213bb8187f791e87ee4f82"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/build.log",
+      "bytes": 743,
+      "sha256": "a7c013e767441422b99002b116528e0c48e98747b738f9d7074c76e5fed8e987"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/smoke_g04_nx0261_ny0259_it0003_nc003.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/smoke_g04_nx0261_ny0259_it0003_nc003.log",
+      "bytes": 1870,
+      "sha256": "f2773be543751606e5404a25f7fbb56fe9e4008fe20a409bbe77dca1c68e460b"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/smoke_g04_nx0261_ny0259_it0004_nc003.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/smoke_g04_nx0261_ny0259_it0004_nc003.log",
+      "bytes": 1870,
+      "sha256": "ae3aebccd0e8deaa87df6a3fad1e07b2e4fbcf0dccf9b8b86fff5eb48c5eedb6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "bytes": 7316,
+      "sha256": "a694d91f2fcedb7d0bf62c2a5ccaf3053abbd5571af24a5b94e79b6220220440"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "bytes": 1069399,
+      "sha256": "93156ebdb64b8045ef782bcf2d64fea8aa07415335a67b30692fef45a0270c91"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "bytes": 1065870,
+      "sha256": "f0b2f5a64e94c831a6fde1a90f9949dc8f68be6c15bb1432ade257db7eea84ed"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "bytes": 1065701,
+      "sha256": "a3c5b2b87890e5146303fae08903abb5515f5b20a900462b95a3d83b2ca2ccd9"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "bytes": 1065798,
+      "sha256": "b653c1fa866638a46a7f8d463cce2281c4c80b49a3d50ccc7e4605e20d3d8c4a"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/runs.tsv",
+      "bytes": 579,
+      "sha256": "81755d7acbca5898a32abae4d1cd4cd378f9e861293bef57a4c0f059769da7ce"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/Instructions.md",
+      "bytes": 3082,
+      "sha256": "72077ac3eaccbb880a8545732b85de6064a417098be603b48683ec1b1f66a586"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/Makefile",
+      "bytes": 2115,
+      "sha256": "71b42fddf9044baf035893a11819d1015b0e38c01f729e28d9b68042bbedb612"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/jacobi.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/jacobi.cu",
+      "bytes": 26981,
+      "sha256": "ebae5c7705dd72cb2d19790a1861d742e6a95fcc0c1d2383ecf11bd974e7c685"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source/run_experiment.sh",
+      "bytes": 9391,
+      "sha256": "6489232842c7210a1c0c24a1b53b8d9f82782a6e63031163484bde4d874e34f6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/source.sha256",
+      "bytes": 487,
+      "sha256": "fc0ff9db1a160c13fbc20cde7a11f7396e1030c30af184d268947d04c907f2b7"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035433Z_nvshmem-device_scalar_job2928756/summary.txt",
+      "bytes": 336,
+      "sha256": "45a5d1fcc76f09eaf78e2f81daee09fbb171b983458122391564947fd68f958c"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/README.md",
+      "bytes": 1029,
+      "sha256": "f5d72e5e228f0b795ba4c0ccc42e53d655bd63474b0852daf7aaa38a8613a18d"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/environment/build_and_job.txt",
+      "bytes": 3939,
+      "sha256": "b26c7f64bdcb8027d9db60c4865dc10b3d5f4fe258671c10828c4bf15fbf93c8"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/environment/compute_node.txt",
+      "bytes": 7890,
+      "sha256": "905006b9c0f5f3c4c72d11173acb20a3286575d937c4be2ca024df0a9699c18a"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/environment/ldd.txt",
+      "bytes": 2926,
+      "sha256": "5612e14fea415159925de3ffbed48db0fb4818cbd0d0c1a24100931e98f250a3"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 2203,
+      "sha256": "71978c00bd28ae1fb444e3093eb83a57ec6f40646f7fa48ea67bb0d739ef0688"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 2206,
+      "sha256": "497830be2648d797f01868c31c516f1ec929e993aa7f24812304158126ec87d1"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/build.log",
+      "bytes": 743,
+      "sha256": "a7c013e767441422b99002b116528e0c48e98747b738f9d7074c76e5fed8e987"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/smoke_g04_nx0261_ny0259_it0003_nc003.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/smoke_g04_nx0261_ny0259_it0003_nc003.log",
+      "bytes": 1888,
+      "sha256": "a354dadeb995f1fd1e4f94e4ba5ef56f11a3087ec2a4311dbb54e1d3769ba9f7"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/smoke_g04_nx0261_ny0259_it0004_nc003.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/smoke_g04_nx0261_ny0259_it0004_nc003.log",
+      "bytes": 1888,
+      "sha256": "b3045dfd8d3c04e2d4acb075b1cf128a8aa950e9ebc7d37caa26d7cd87e6af8b"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "bytes": 7349,
+      "sha256": "df16e0896e71a4fe774fcc6879dd6c7548ceaf942bec10387c3548ae628dec22"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "bytes": 1031458,
+      "sha256": "b0d3b96e4c593d627ba420603b64285f628f0716a4d49ecf9eec2a0db5335233"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "bytes": 1066568,
+      "sha256": "01f5704ff1097766e6f40f48bc5ab6faef7bdddaef962ae153aa9a3b6f0dfb73"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "bytes": 1066027,
+      "sha256": "3cc923f47b6653383091dcff012650f0a1688d4ef831efb58e5a560801bc4db5"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "bytes": 1028050,
+      "sha256": "fa55249f6ebfd22805f84e7e6c0b7e635e4ae1c2355c8d2daa97370053a67037"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/runs.tsv",
+      "bytes": 579,
+      "sha256": "a59eae4e34162285772f430af3a76afdc7d345b81d5b80675204a77506c05b13"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/Instructions.md",
+      "bytes": 3082,
+      "sha256": "72077ac3eaccbb880a8545732b85de6064a417098be603b48683ec1b1f66a586"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/Makefile",
+      "bytes": 2115,
+      "sha256": "71b42fddf9044baf035893a11819d1015b0e38c01f729e28d9b68042bbedb612"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/jacobi.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/jacobi.cu",
+      "bytes": 26981,
+      "sha256": "ebae5c7705dd72cb2d19790a1861d742e6a95fcc0c1d2383ecf11bd974e7c685"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source/run_experiment.sh",
+      "bytes": 9391,
+      "sha256": "6489232842c7210a1c0c24a1b53b8d9f82782a6e63031163484bde4d874e34f6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/source.sha256",
+      "bytes": 487,
+      "sha256": "4aa13052853e0cd813567ed95bd565bf6e63728aecb77cb9d96d8b0a3be0c019"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035621Z_nvshmem-device_scalar-1d_job2928756/summary.txt",
+      "bytes": 336,
+      "sha256": "77df41e2083ada53713f0df99f15d56ddb30c1f07e176a13fbcca1d7a30597fe"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/README.md",
+      "bytes": 1021,
+      "sha256": "4d33b669bfe3d7fe9e16c65100c8d527caa53950531fb96d087264079794c8b4"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/environment/build_and_job.txt",
+      "bytes": 3935,
+      "sha256": "3e506dbc001340ae6cf677e28515f860039b26f929312c947e5aa0bbec421d72"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/environment/compute_node.txt",
+      "bytes": 7890,
+      "sha256": "6d7466a1af2454a9fb9733af30f444344698c407f827cd5cabf52fd01f89a5d2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/environment/ldd.txt",
+      "bytes": 2926,
+      "sha256": "6efffe3e4005709c3d5d8ec2072816236eaa0f9907cb9fd9e5e833d6721d2863"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 2204,
+      "sha256": "3293e78068f271aa0d115189ac1b38b51979eefa37e8eaada185b3ab2abf37eb"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 2207,
+      "sha256": "433ca45ca13a4d1e4d4605db9d160fe254158aa2f5f59b00e43deebfbefcf855"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/build.log",
+      "bytes": 743,
+      "sha256": "a7c013e767441422b99002b116528e0c48e98747b738f9d7074c76e5fed8e987"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/smoke_g04_nx0261_ny0259_it0003_nc003.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/smoke_g04_nx0261_ny0259_it0003_nc003.log",
+      "bytes": 1889,
+      "sha256": "c651b2028f629055d639bed49d03d8f7bc46defeb443dc7689678d02c29ca17f"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/smoke_g04_nx0261_ny0259_it0004_nc003.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/smoke_g04_nx0261_ny0259_it0004_nc003.log",
+      "bytes": 1930,
+      "sha256": "a75c755485498a1ba086f7162854e4b1da709a0a497450e4230a2aaf9ac51e37"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/logs/trace_g04_nx16384_ny16384_it0010_nc010_r01.log",
+      "bytes": 7330,
+      "sha256": "920fe3a5b3d0624a5b0b8a15e81545b80975d56b98530de0f88619c859e216a4"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank0.nsys-rep",
+      "bytes": 1070433,
+      "sha256": "b3a00f65ffc27decf6e3774f26bd4ff3e66a8d2af6d7ce6be51a567abe19feb2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank1.nsys-rep",
+      "bytes": 1046257,
+      "sha256": "cae18835a39c6883a877d530ef54986f9fb7511fbb7037ad3c263e3727941968"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank2.nsys-rep",
+      "bytes": 1066003,
+      "sha256": "4af4df13250c3f2b9c242e8cf14481094a03f2c28f7858ab1b9e1e4930804ca6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank3.nsys-rep",
+      "bytes": 1066496,
+      "sha256": "be248fb1ae439d2b33bb260390986d90a07bdb734f534816d6ea48d1b96c0236"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/runs.tsv",
+      "bytes": 579,
+      "sha256": "ec05ef454b2f3a7cc33c54bebde81b34064da58387a82dd6bd09c9d17b329cf8"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/Instructions.md",
+      "bytes": 3082,
+      "sha256": "72077ac3eaccbb880a8545732b85de6064a417098be603b48683ec1b1f66a586"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/Makefile",
+      "bytes": 2115,
+      "sha256": "71b42fddf9044baf035893a11819d1015b0e38c01f729e28d9b68042bbedb612"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/jacobi.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/jacobi.cu",
+      "bytes": 26981,
+      "sha256": "ebae5c7705dd72cb2d19790a1861d742e6a95fcc0c1d2383ecf11bd974e7c685"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/run_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source/run_experiment.sh",
+      "bytes": 9391,
+      "sha256": "6489232842c7210a1c0c24a1b53b8d9f82782a6e63031163484bde4d874e34f6"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/source.sha256",
+      "bytes": 487,
+      "sha256": "a449d1b468cc928d3745d7cc827af93e6a779b736564e9f8e4dbb9cabec6cab3"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261116T035750Z_nvshmem-device_block_job2928756/summary.txt",
+      "bytes": 336,
+      "sha256": "ee23192c2d1c7d5ea01e65656f6dfab75ce588fa2d882c2904e0aca4513d2bea"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/SC26_NVSHMEM_Device_job2928756.contents.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/SC26_NVSHMEM_Device_job2928756.contents.txt",
+      "bytes": 6698,
+      "sha256": "a482b98a251ecad6a1ff9b987599798625adf9579fab8f47721e5beceddfae4b"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/SC26_NVSHMEM_Device_job2928756.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/SC26_NVSHMEM_Device_job2928756.sha256",
+      "bytes": 104,
+      "sha256": "f990cbfd7a4a89ca01b94da5c4e0c6db027417bca62215ac3bfd7b78016abcc8"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/README.md",
+      "bytes": 1535,
+      "sha256": "24dbf0909c8b7cb77d06f3e07565822d645a0f10b03258452037dfad223be917"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/logs/benchmark.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/logs/benchmark.log",
+      "bytes": 933,
+      "sha256": "b15766049fbea50b7bb324faeaf2c07eb056afa82f36e0a9f91df68cc885cff0"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/logs/build.log",
+      "bytes": 30,
+      "sha256": "c8e5756f3be719d3b0cb6cdea0057bed25d1068d781054a708bce03b4021f545"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/logs/profile.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/logs/profile.log",
+      "bytes": 5073,
+      "sha256": "3cec86356dbc39f6111d7544c94ce7f17c326d8e59f52764e8a20c294f8a4ca5"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank0.nsys-rep",
+      "bytes": 701262,
+      "sha256": "46594c6586753a117f52081946a3a0db76a64788854670d9f6656fa2bcf47a3e"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank1.nsys-rep",
+      "bytes": 712958,
+      "sha256": "07ae01e9da5d07e710f480f7024143cb3f75f4a7ede10067bfa62af850d4319c"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank2.nsys-rep",
+      "bytes": 752609,
+      "sha256": "e7d5b2fc1b793ec4161d12168cfa793ed9d16f137e5bc08a2cfa4d34b0c183ea"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/profiles/trace_g04_it0010_nc010_r01.rank3.nsys-rep",
+      "bytes": 753058,
+      "sha256": "e27c21d21c4f9e109d684291ddc1b1855d08b4d50d19dbd36de3e0dd798d56b2"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/source/Makefile",
+      "bytes": 2055,
+      "sha256": "6f333ca692766107eeaf4b698662e12539ab6e7700c5bf5305bebc134323a625"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/source/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/source/jacobi.cpp",
+      "bytes": 25682,
+      "sha256": "c6aa84dabec3cfd2d53a08bb524c3c5c753990c58e93228cd6f76e62459ab2d1"
+    },
+    {
+      "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/archive/tasks/results/nccl-device-lsa-fix_20261115T223202Z/source/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/nccl-device-lsa-fix_20261115T223202Z/source/jacobi_kernels.cu",
+      "bytes": 15973,
+      "sha256": "8fb5a1608a0f7e4b89130cd06112e06838930f7007f785b666e4f212848038c6"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/Instructions.md",
+      "bytes": 1387,
+      "sha256": "72a37335e32db5f7f380da1d861688bb9d0f3f7f349494324cb9c8468327b6a4"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/Makefile",
+      "bytes": 1994,
+      "sha256": "9a40ce486c3fb9d140a9efc5f6a30b2c36015ef76a2850d55da9bef65978e824"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.0.nsys-rep",
+      "bytes": 1124569,
+      "sha256": "bc67a5ec56f693b29ba4258cde0870c8969da4da27816d7d4f4cf1663c1a08d0"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.1.nsys-rep",
+      "bytes": 975398,
+      "sha256": "c041996c4eda9277e0e6bed196a249d43b07bf3d929f828ba38b619796067b32"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.2.nsys-rep",
+      "bytes": 978216,
+      "sha256": "4e2fda79252fd605b8be57e3619a62e3f8c96c9aeb54ee3c55f623cbfb886a77"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/jacobi.07H-NCCL-task__20261115-2147.3.nsys-rep",
+      "bytes": 969198,
+      "sha256": "805c772d1fb9d29ffdec2f978dc31b4fa941da301e131a5da943234711eda26f"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/jacobi.cpp",
+      "bytes": 25882,
+      "sha256": "13babf57b9d8dac1275246ff8d229e912c9d18f87af50f544efcd48ddf029d65"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NCCL/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NCCL/jacobi_kernels.cu",
+      "bytes": 5634,
+      "sha256": "8e084d26b6c1884a06fcce10094c31ac3cf20839b69282af45a86920d865151c"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NVSHMEM/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NVSHMEM/Instructions.md",
+      "bytes": 2072,
+      "sha256": "45ab4a97e28c52948bdebae9424df8488e11bdf06a1ad6c85f85700224585b19"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NVSHMEM/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NVSHMEM/Makefile",
+      "bytes": 2210,
+      "sha256": "04cf73ac81da36cd98b0abfac9cb978a750f43b9f6560f56cf45bebb1a420c96"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NVSHMEM/jacobi.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NVSHMEM/jacobi.cu",
+      "bytes": 28067,
+      "sha256": "a4c23a845a4ea01350955834b58d92a1ae11f54a1afdf2ca0dcaacf1feaf0115"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/NVSHMEM/run_nvshmem_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NVSHMEM/run_nvshmem_experiment.sh",
+      "bytes": 6514,
+      "sha256": "f09f182dab58169f453fc61b966ccfa08ced32f8bb1953ee5140c2f30ba13317"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/README.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/README.md",
+      "bytes": 1449,
+      "sha256": "0e32409675eb31c110d9e37f9f2653dc3492e1d90de2d6e89953734966c9191f"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/environment/build_and_job.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/environment/build_and_job.txt",
+      "bytes": 3853,
+      "sha256": "5fd0c2f1a9c46ec025f2ebc7cc49e6bec055ee645d07295a76c718616c0d8038"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/environment/compute_node.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/environment/compute_node.txt",
+      "bytes": 7890,
+      "sha256": "665c12abd810ce9520744eca40c2d5d9af97f80008757f834e1032760f95a035"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/environment/ldd.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/environment/ldd.txt",
+      "bytes": 2926,
+      "sha256": "0d091aabede1d1ec8ca4f23dce677530527149eab0655abe1475292b4a31bf1c"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r01.log",
+      "bytes": 2088,
+      "sha256": "f21a49a207f58f90ae3e46a23ea5d1c26c9e5e3a7b575f48ef352928ca2a30d0"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r02.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r02.log",
+      "bytes": 2088,
+      "sha256": "ed5ea15d0b55856c2fa5765de457747e00a8eb3db801b14b023c8be3e95bc563"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r03.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc001_r03.log",
+      "bytes": 2088,
+      "sha256": "d30f6bf446165e4d56b4221c20ea6101130e39992f16762acfe2380ba7c3e0b5"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r01.log",
+      "bytes": 2091,
+      "sha256": "aebbe96e66a0ff23930575b967f2f3b55d4ce70102ff8d3b4a6d3d376b1ab478"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r02.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r02.log",
+      "bytes": 2091,
+      "sha256": "5d0a8dde2989a7d2b3b092f2961c976141edee9892482a1307fb2632d0f8bbcb"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r03.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/bench_g04_nx16384_ny16384_it1000_nc010_r03.log",
+      "bytes": 2091,
+      "sha256": "9314542bfdfa2d9b07501410d3229e814e455f2777d77cc56baeb2eb3941733b"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/build.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/logs/build.log",
+      "bytes": 789,
+      "sha256": "94c60cf7aaf3c925ce6c94f6b25763ce871b93d1071806c6b9c4f58dd3be104f"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/runs.tsv",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/runs.tsv",
+      "bytes": 678,
+      "sha256": "2c13b436b415bab6558725f357722b653b4886a6023dded33a58eb598e22cb6f"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/Instructions.md",
+      "bytes": 2072,
+      "sha256": "45ab4a97e28c52948bdebae9424df8488e11bdf06a1ad6c85f85700224585b19"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/Makefile",
+      "bytes": 2210,
+      "sha256": "04cf73ac81da36cd98b0abfac9cb978a750f43b9f6560f56cf45bebb1a420c96"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/jacobi.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/jacobi.cu",
+      "bytes": 28067,
+      "sha256": "a4c23a845a4ea01350955834b58d92a1ae11f54a1afdf2ca0dcaacf1feaf0115"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/run_nvshmem_experiment.sh",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source/run_nvshmem_experiment.sh",
+      "bytes": 6514,
+      "sha256": "f09f182dab58169f453fc61b966ccfa08ced32f8bb1953ee5140c2f30ba13317"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source.sha256",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/source.sha256",
+      "bytes": 495,
+      "sha256": "722efe1fd8a406dd3a605b6f07b7a9fdb78beecb3d51ce333e2e6e8437058158"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/summary.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/20261115T221656Z_nvshmem-nccheck-controlled_job2925563/summary.txt",
+      "bytes": 890,
+      "sha256": "f90222939ea790507decd1e2c8d23380d077c50fca195e767338a70fde6cd25f"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/nvshmem_benchmark/nccheck_10.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/nvshmem_benchmark/nccheck_10.log",
+      "bytes": 731,
+      "sha256": "cf4fca8c6cac46bd5d38603133744852c4f4e18f39fb7765bad7ba355c213db6"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/nvshmem_profiles/nvshmem_overlap.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/nvshmem_profiles/nvshmem_overlap.0.nsys-rep",
+      "bytes": 1045590,
+      "sha256": "f683049c5d0b6c7909a94d7f8733d9c634dae5e79ac872a66e11ec2b31b00797"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/nvshmem_profiles/nvshmem_overlap.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/nvshmem_profiles/nvshmem_overlap.1.nsys-rep",
+      "bytes": 1049218,
+      "sha256": "57e6abe027e9b4a457dda89c8c10332062661a4babb1a5af74278e73c3ad0681"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/nvshmem_profiles/nvshmem_overlap.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/nvshmem_profiles/nvshmem_overlap.2.nsys-rep",
+      "bytes": 1043226,
+      "sha256": "a81ec401fd94a27f07b33e92aa1d907e12745f57127ead80e619d63e13ae4a68"
+    },
+    {
+      "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/archive/tasks/results/nvshmem_profiles/nvshmem_overlap.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/results/nvshmem_profiles/nvshmem_overlap.3.nsys-rep",
+      "bytes": 1024106,
+      "sha256": "818e3ae54d0510fce51ce02f24ce5f409397302f24401271930a9f7032cbb8e4"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/experiment_date.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/experiment_date.txt",
+      "bytes": 32,
+      "sha256": "ae7ab8cefe140eecabad0258f475dcad2e6bccb10d7e28e78b1a851f0fc683b3"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/gpu_info.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/gpu_info.txt",
+      "bytes": 1781,
+      "sha256": "e52dff255d210186c55b70921fd9775f2f42335b91da2623eb7baa499026af65"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/jacobi.cpp",
+      "bytes": 32671,
+      "sha256": "9832efff81eb0a45d357fc6f2c4df78767e3e82275877bdac0a4c9938d7b17d2"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/nccheck_1.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/nccheck_1.log",
+      "bytes": 721,
+      "sha256": "0a610200c35259bba75e2b37ac2ed07094f0337d96ee2991b4f598eb45b0a861"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/nccheck_10.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/nccheck_10.log",
+      "bytes": 723,
+      "sha256": "0423a63f0176273642f5f61656c88188dbdc60f1a22153595252fd61fd8058f6"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/nccheck_100.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/nccheck_100.log",
+      "bytes": 725,
+      "sha256": "169a0a08ddc383747ebf0cb7c5205eedeafa439ba70359073ff05d017b85881f"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/nccheck_20.log",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/nccheck_20.log",
+      "bytes": 723,
+      "sha256": "6fcd3af3ed093cb645c8992a7f2226c9a6b62027c9748ab57d4ddfbf92f280b4"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/nsys_version.txt",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/nsys_version.txt",
+      "bytes": 58,
+      "sha256": "8c9cd1b7561e170cdf44f4824986997ef7394c5d8d8015454bfe2f87e998dfbf"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/profiles/nccheck10.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/profiles/nccheck10.0.nsys-rep",
+      "bytes": 631306,
+      "sha256": "b150aca36ee43d406a621d9dcdb0f66839affc93a31750a9517f2126a43a9908"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/profiles/nccheck10.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/profiles/nccheck10.1.nsys-rep",
+      "bytes": 643517,
+      "sha256": "8d3e387f5026b213faf2c3a3e1085490df94379d635d8efbd3e42d12f6555d59"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/profiles/nccheck10.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/profiles/nccheck10.2.nsys-rep",
+      "bytes": 662343,
+      "sha256": "cb6a6f51470bec277c8fb76c4cf0dd0332895a2889e2b8d9810da8da91f1ba9f"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/results/timing_fix_20261115_213315/profiles/nccheck10.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/results/timing_fix_20261115_213315/profiles/nccheck10.3.nsys-rep",
+      "bytes": 661934,
+      "sha256": "ecabc2b4ff96460ae3e499f2d0c58f3e203a0384a2f33a033a86c340803326c9"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/Instructions.md",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/Instructions.md",
+      "bytes": 3245,
+      "sha256": "979affb3151d66624da319496a0b076a3f68175d5d390d12e89b9ca12f0058a2"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/Makefile",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/Makefile",
+      "bytes": 1843,
+      "sha256": "3aeaa5205cad13f29d26a06d4345a441b7a5f7060d358014d6c41fa8b8c507f2"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1807.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1807.0.nsys-rep",
+      "bytes": 894561,
+      "sha256": "f08ec85a8b1bdd4989b88b41063620c81c1ccda8e5d34359616f920922514f33"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1807.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1807.1.nsys-rep",
+      "bytes": 895307,
+      "sha256": "39f28051e17317149ef5678bd044a377c426b5bf469c344b8adb9f6bd94afb1d"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1807.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1807.2.nsys-rep",
+      "bytes": 798505,
+      "sha256": "3913905c2f4d3dfdc73f608c5328b4cbabbe85e10cf20f55658a2a37b06e6b5b"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1807.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1807.3.nsys-rep",
+      "bytes": 798557,
+      "sha256": "b7301ce9412283230fa71eb70bb36e6c36a873bfbb88f96d52473443ba40334f"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1841.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1841.0.nsys-rep",
+      "bytes": 926367,
+      "sha256": "596d5c3a569377c15199436c197122b5e7e8818240fe9787f1b8874532af7576"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1841.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1841.1.nsys-rep",
+      "bytes": 804664,
+      "sha256": "6d7166b2ed25d18e0581e22f7ec7cfb491935d15b81d147bed9f737995954d10"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1841.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1841.2.nsys-rep",
+      "bytes": 848683,
+      "sha256": "b23c988e2ee489cd4ecb19670e550d3b3c78c00c44c2fe78f1b72841cc152b79"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.04H-task__20261115-1841.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.04H-task__20261115-1841.3.nsys-rep",
+      "bytes": 804067,
+      "sha256": "e190af0020bd32489353f486ba1264dac7fa15c10e34b63b6ee2f90f0b32b3be"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi.cpp",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi.cpp",
+      "bytes": 32671,
+      "sha256": "9832efff81eb0a45d357fc6f2c4df78767e3e82275877bdac0a4c9938d7b17d2"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean.0.nsys-rep",
+      "bytes": 669937,
+      "sha256": "c3df896bf97ff7c0f4e071b5c455adbcbcbc3d254292f511e996c83817ca6522"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean.1.nsys-rep",
+      "bytes": 669092,
+      "sha256": "b9946a87b0abed95503ab96813dbe30244304b619ee88aebc913ecef9cd255d1"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean.2.nsys-rep",
+      "bytes": 649933,
+      "sha256": "5eead1c7517b7a7b3aca535ba3d777833baaa86b3a17bcd33ad44285856957cd"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean.3.nsys-rep",
+      "bytes": 638240,
+      "sha256": "711098144b378d3c9c9d8f2e905f5f08dd6f7c02a07bded57888e5e0ea844965"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck10.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck10.0.nsys-rep",
+      "bytes": 626883,
+      "sha256": "ddbd5a0f06cb3934655c1d2760dbe7c1355f67498db667915102291c7a90023d"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck10.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck10.1.nsys-rep",
+      "bytes": 639115,
+      "sha256": "3168b94d15098e09a9200a5e738791f77c71c3ef84fcb41e4f167ccca3e391b2"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck10.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck10.2.nsys-rep",
+      "bytes": 676812,
+      "sha256": "062f09116b3e3f0698b8d707382134262c50ee8030ad0318371d35a9aba60e85"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck10.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck10.3.nsys-rep",
+      "bytes": 639054,
+      "sha256": "c5d22177fecf6bc97bc63f7ae4f6e73a6eb521b61b2c84759fa1445d664c9481"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck20.0.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck20.0.nsys-rep",
+      "bytes": 634627,
+      "sha256": "e0188d4e5c12703a3b9895c3c5678f6b7f7f855aeac67bf2c5eba5a11b5011e5"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck20.1.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck20.1.nsys-rep",
+      "bytes": 665272,
+      "sha256": "ce1c86b21bda79f105b88da5f8e96fc23e29b1d07e76795565cf989640b8bb73"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck20.2.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck20.2.nsys-rep",
+      "bytes": 684053,
+      "sha256": "92944a22be8d11d6c35db614629871dda3c7b0f0547377dfd9ce3a60771f6548"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_clean_ncccheck20.3.nsys-rep",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_clean_ncccheck20.3.nsys-rep",
+      "bytes": 646466,
+      "sha256": "b0eaabb483ae2611df8312213dca0f8892b0a6e0ca6bffd92abf51aa279b3f19"
+    },
+    {
+      "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/archive/tasks/jacobi_kernels.cu",
+      "archive_member": "SC26-Multi-GPU-Tutorial/04-H_Overlap_Communication_and_Computation_MPI/tasks/jacobi_kernels.cu",
+      "bytes": 5639,
+      "sha256": "8f0ae02ea878e7ba393d625b71cddda9a49091a4d7249d0363fb3346d7ef995a"
+    }
+  ]
+}

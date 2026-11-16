@@ -1,0 +1,7 @@
+Benchmark results (successful srun only; see runs.tsv for failures)
+bench_g04_nx16384_ny16384_it1000_nc001_r01: 16384x16384: 1 GPU:   1.6960 s, 4 GPUs:   0.4774 s, speedup:     3.55, efficiency:    88.81 
+bench_g04_nx16384_ny16384_it1000_nc010_r01: 16384x16384: 1 GPU:   1.2357 s, 4 GPUs:   0.3284 s, speedup:     3.76, efficiency:    94.07 
+bench_g04_nx16384_ny16384_it1000_nc010_r02: 16384x16384: 1 GPU:   1.2359 s, 4 GPUs:   0.3281 s, speedup:     3.77, efficiency:    94.17 
+bench_g04_nx16384_ny16384_it1000_nc001_r02: 16384x16384: 1 GPU:   1.6825 s, 4 GPUs:   0.4760 s, speedup:     3.53, efficiency:    88.37 
+bench_g04_nx16384_ny16384_it1000_nc001_r03: 16384x16384: 1 GPU:   1.6835 s, 4 GPUs:   0.4767 s, speedup:     3.53, efficiency:    88.29 
+bench_g04_nx16384_ny16384_it1000_nc010_r03: 16384x16384: 1 GPU:   1.2354 s, 4 GPUs:   0.3278 s, speedup:     3.77, efficiency:    94.23 

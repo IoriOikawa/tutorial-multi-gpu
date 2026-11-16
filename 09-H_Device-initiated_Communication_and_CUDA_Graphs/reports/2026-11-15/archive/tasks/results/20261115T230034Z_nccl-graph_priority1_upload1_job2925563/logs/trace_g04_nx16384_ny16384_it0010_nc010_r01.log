@@ -1,0 +1,5 @@
+# command: srun -N 1 --cpu-bind=verbose\,sockets --unbuffered -n 4 bash -c printf\ \"\[placement\]\ job=%s\ step=%s\ rank=%s\ host=%s\ CUDA_VISIBLE_DEVICES=%s\ \"\ \"\$\{SLURM_JOB_ID:-\?\}\"\ \"\$\{SLURM_STEP_ID:-\?\}\"\ \"\$\{SLURM_PROCID:-\?\}\"\ \"\$\(hostname\)\"\ \"\$\{CUDA_VISIBLE_DEVICES:-unset\}\"\;\ grep\ Cpus_allowed_list\ /proc/self/status\;\ exec\ \"\$@\" _ nsys profile --trace=cuda\,nvtx\,mpi --sample=none --cpuctxsw=none --cuda-graph-trace=node --output=/e/home/jusers/wang108/jupiter/SC26-Multi-GPU-Tutorial/09-H_Device-initiated_Communication_and_CUDA_Graphs/tasks/results/20261115T230034Z_nccl-graph_priority1_upload1_job2925563/profiles/trace_g04_nx16384_ny16384_it0010_nc010_r01.rank%q\{SLURM_PROCID\} ./jacobi -nx 16384 -ny 16384 -niter 10 -nccheck 10 
+# start UTC: 2026-11-15T23:00:45Z
+srun: error: Unable to confirm allocation for job 2925563: Invalid job id specified
+srun: Check SLURM_JOB_ID environment variable. Expired or invalid job 2925563
+# end UTC: 2026-11-15T23:00:47Z; exit code: 1; validation: FAIL

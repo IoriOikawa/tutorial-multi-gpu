@@ -1,0 +1,4 @@
+# Preserve historical evidence bytes, including original line endings and spaces.
+*/reports/2026-11-15/archive/** -text -whitespace
+# Matplotlib emits whitespace inside SVG path data; retain its generated output.
+*/reports/2026-11-15/figures/*.svg -whitespace

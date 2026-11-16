@@ -1,0 +1,4 @@
+kind	run	nccheck	niter	start_utc	end_utc	exit_code	validation
+benchmark	bench_g04_nx16384_ny16384_it1000_nc001_r01	1	1000	2026-11-15T23:00:57Z	2026-11-15T23:00:57Z	1	FAIL
+benchmark	bench_g04_nx16384_ny16384_it1000_nc010_r01	10	1000	2026-11-15T23:00:57Z	2026-11-15T23:00:57Z	1	FAIL
+profile	trace_g04_nx16384_ny16384_it0010_nc010_r01	10	10	2026-11-15T23:00:57Z	2026-11-15T23:00:59Z	1	FAIL

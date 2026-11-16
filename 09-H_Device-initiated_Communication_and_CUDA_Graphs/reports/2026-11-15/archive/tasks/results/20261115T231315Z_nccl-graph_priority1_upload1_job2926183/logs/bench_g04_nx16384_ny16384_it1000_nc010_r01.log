@@ -1,0 +1,35 @@
+# command: srun -N 1 --cpu-bind=verbose\,sockets --unbuffered -n 4 bash -c printf\ \"\[placement\]\ job=%s\ step=%s\ rank=%s\ host=%s\ CUDA_VISIBLE_DEVICES=%s\ \"\ \"\$\{SLURM_JOB_ID:-\?\}\"\ \"\$\{SLURM_STEP_ID:-\?\}\"\ \"\$\{SLURM_PROCID:-\?\}\"\ \"\$\(hostname\)\"\ \"\$\{CUDA_VISIBLE_DEVICES:-unset\}\"\;\ grep\ Cpus_allowed_list\ /proc/self/status\;\ exec\ \"\$@\" _ ./jacobi -nx 16384 -ny 16384 -niter 1000 -nccheck 10 
+# start UTC: 2026-11-15T23:13:37Z
+cpu_bind=SOCKETS - jpbo-001-09, task  1  1 [2142052]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-001-09, task  0  0 [2142051]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-001-09, task  3  3 [2142053]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-001-09, task  2  2 [2142050]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+[placement] job=2926183 step=2 rank=0 host=jpbo-001-09.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 Cpus_allowed_list:	0-71
+[placement] job=2926183 step=2 rank=1 host=jpbo-001-09.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 [placement] job=2926183 step=2 rank=3 host=jpbo-001-09.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 [placement] job=2926183 step=2 rank=2 host=jpbo-001-09.jupiter.internal CUDA_VISIBLE_DEVICES=0,1,2,3 Cpus_allowed_list:	72-143
+Cpus_allowed_list:	216-287
+Cpus_allowed_list:	144-215
+Single GPU jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 10 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535684
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235509
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+NCCL Graph Jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 10 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535685
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235510
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+Num GPUs: 4.
+16384x16384: 1 GPU:   1.2092 s, 4 GPUs:   0.3171 s, speedup:     3.81, efficiency:    95.34 
+# end UTC: 2026-11-15T23:13:48Z; exit code: 0; validation: PASS

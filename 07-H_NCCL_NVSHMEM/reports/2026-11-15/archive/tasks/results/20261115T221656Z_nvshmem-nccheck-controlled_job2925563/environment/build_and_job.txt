@@ -1,0 +1,82 @@
+2026-11-15T22:16:56Z
+Source directory: /e/home/jusers/wang108/jupiter/SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NVSHMEM
+Slurm job: 2925563
+Nodes: jpbo-003-46
+CUDA_VISIBLE_DEVICES: 0,1,2,3
+
+Currently Loaded Modules:
+  1) Stages/2027    (S)   7) numactl/2.0.19     13) UCX/default           (g)  19) bzip2/1.0.8      25) libreadline/8.3    31) xorg-macros/1.20.2
+  2) GCCcore/15.2.0       8) libxml2/2.15.1     14) PMIx/6.1.0                 20) expat/2.7.3      26) libtommath/1.3.0   32) X11/20260518
+  3) zlib/2.3.2           9) libpciaccess/0.19  15) UCC/default           (g)  21) libpng/1.6.56    27) Tcl/9.0.3          33) Nsight-Systems/2026.6.1
+  4) binutils/2.45       10) hwloc/2.13.0       16) OpenMPI/5.0.10        (g)  22) Brotli/1.2.0     28) SQLite/3.51.1      34) UCX-settings/UD-CUDA
+  5) GCC/15.2.0          11) OpenSSL/3          17) NCCL/default-CUDA-13  (g)  23) freetype/2.14.3  29) util-linux/2.42    35) MPI-settings/CUDA
+  6) CUDA/13        (g)  12) libevent/2.1.12    18) NVSHMEM/3.8.0-CUDA-13 (g)  24) ncurses/6.6      30) fontconfig/2.17.1
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+   g:  Built with GPU support
+
+ 
+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2026 NVIDIA Corporation
+Built on Fri_Apr_24_07:23:04_PM_PDT_2026
+Cuda compilation tools, release 13.3, V13.3.33
+Build cuda_13.3.r13.3/compiler.37862127_0
+g++ (GCC) 15.2.0
+Copyright (C) 2025 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Open MPI v5.0.10
+
+https://www.open-mpi.org/community/help/
+NVIDIA Nsight Systems version 2026.6.1.218-266139266636v0
+JobId=2925563 JobName=interactive
+   UserId=wang108(37176) GroupId=training2660(36291) MCS_label=N/A
+   Priority=352285 Nice=0 Account=training2660 QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=0 Reboot=0 ExitCode=0:0
+   RunTime=00:00:26 TimeLimit=00:10:00 TimeMin=N/A
+   SubmitTime=2026-11-15T23:16:31 EligibleTime=2026-11-15T23:16:31
+   AccrueTime=Unknown
+   StartTime=2026-11-15T23:16:31 EndTime=2026-11-15T23:26:51 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-15T23:16:31 Scheduler=Main
+   Partition=booster AllocNode:Sid=jpbl-s01-04.jupiter.internal:3268628
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=jpbo-003-46
+   BatchHost=jpbo-003-46
+   NumNodes=1 NumCPUs=288 NumTasks=4 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=4,mem=878535M,node=1,billing=4,gres/gpu=4
+   AllocTRES=cpu=288,node=1,billing=288,gres/gpu=4,gres/gpu:gh200=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   Reservation=sc26-multigpu-tut
+   OverSubscribe=NO Contiguous=0 Licenses=home@exastore LicensesAlloc=home@exastore:1 Network=(null)
+   Command=/bin/bash
+   WorkDir=/e/home/jusers/wang108/jupiter/SC26-Multi-GPU-Tutorial/07-H_NCCL_NVSHMEM/tasks/NVSHMEM
+   TresPerNode=gres/gpu:4
+   
+
+CUDA_VISIBLE_DEVICES=0,1,2,3
+NCCL_HOME=/e/software/default/stages/2027/software/NCCL/default-GCCcore-15.2.0-CUDA-13
+NVSHMEM_HOME=/e/software/default/stages/2027/software/NVSHMEM/3.8.0-gompi-2026.1-CUDA-13
+OMPI_MCA_bml_r2_show_unreach_errors=0
+OMPI_MCA_btl_openib_allow_ib=1
+OMPI_MCA_btl_openib_warn_default_gid_prefix=0
+OMPI_MCA_btl=^uct,openib
+OMPI_MCA_io=romio341
+OMPI_MCA_mca_base_component_show_load_errors=1
+OMPI_MCA_mpi_param_check=1
+OMPI_MCA_mpi_show_handle_leaks=1
+OMPI_MCA_mpi_warn_on_fork=1
+OMPI_MCA_opal_abort_print_stack=1
+OMPI_MCA_opal_event_include=epoll
+OMPI_MCA_opal_set_max_sys_limits=1
+OMPI_MCA_osc=^rdma
+OMPI_MCA_plm_slurm_args=--external-launcher
+OMPI_MCA_pml=ucx
+UCX_MAX_RNDV_RAILS=1
+UCX_RNDV_FRAG_MEM_TYPE=cuda
+UCX_TLS=ud_x,self,sm,cuda_ipc,gdr_copy,cuda_copy

@@ -1,0 +1,29 @@
+salloc --reservation sc26-multigpu-tut --partition booster --gres=gpu:4  --time 0:10:00 srun --cpu-bind=sockets --unbuffered -n 4 ./jacobi
+salloc: Granted job allocation 2925699
+salloc: Waiting for resource configuration
+salloc: Nodes jpbo-001-09 are ready for job
+Single GPU jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 1 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535684
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235509
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+Jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 1 iterations
+    0, 31.999006
+  100, 0.897983
+  200, 0.535685
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235510
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+Num GPUs: 4.
+16384x16384: 1 GPU:   1.4703 s, 4 GPUs:   0.4340 s, speedup:     3.39, efficiency:    84.70 
+salloc: Relinquishing job allocation 2925699

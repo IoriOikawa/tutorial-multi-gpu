@@ -1,0 +1,2 @@
+nvcc -DHAVE_CUB -lineinfo -gencode arch=compute_90,code=sm_90 -gencode arch=compute_90,code=compute_90 -std=c++17 jacobi_kernels.cu -c
+mpicxx -DUSE_NVTX -I/e/software/default/stages/2027/software/CUDA/13/include -I/e/software/default/stages/2027/software/NCCL/default-GCCcore-15.2.0-CUDA-13/include -std=c++17 jacobi.cpp jacobi_kernels.o -L/e/software/default/stages/2027/software/CUDA/13/lib64 -lcudart -lnccl -o jacobi

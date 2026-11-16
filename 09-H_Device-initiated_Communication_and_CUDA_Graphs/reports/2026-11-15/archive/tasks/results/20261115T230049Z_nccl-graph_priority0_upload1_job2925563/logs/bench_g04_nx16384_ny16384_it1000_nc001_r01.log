@@ -1,0 +1,5 @@
+# command: srun -N 1 --cpu-bind=verbose\,sockets --unbuffered -n 4 bash -c printf\ \"\[placement\]\ job=%s\ step=%s\ rank=%s\ host=%s\ CUDA_VISIBLE_DEVICES=%s\ \"\ \"\$\{SLURM_JOB_ID:-\?\}\"\ \"\$\{SLURM_STEP_ID:-\?\}\"\ \"\$\{SLURM_PROCID:-\?\}\"\ \"\$\(hostname\)\"\ \"\$\{CUDA_VISIBLE_DEVICES:-unset\}\"\;\ grep\ Cpus_allowed_list\ /proc/self/status\;\ exec\ \"\$@\" _ ./jacobi -nx 16384 -ny 16384 -niter 1000 -nccheck 1 -no_node_priority 
+# start UTC: 2026-11-15T23:00:57Z
+srun: error: Unable to confirm allocation for job 2925563: Invalid job id specified
+srun: Check SLURM_JOB_ID environment variable. Expired or invalid job 2925563
+# end UTC: 2026-11-15T23:00:57Z; exit code: 1; validation: FAIL
