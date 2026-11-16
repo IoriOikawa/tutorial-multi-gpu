@@ -6,6 +6,10 @@ Record date: 2026-11-15 (America/Chicago). For reviewing and reproducing the exp
 
 [Return to the day's experiment index](../../../docs/experiments/2026-11-15/README.en.md) · [Read the missing information and screenshot checklist](../../../docs/experiments/2026-11-15/MISSING_INFORMATION.en.md)
 
+## Follow-up — 2026-11-16
+
+This page describes the November 15 evidence. The [November 16 research log](../../../research/2026-11-16/README.en.md) and [findings/status comparison](../../../research/2026-11-16/FINDINGS.en.md) add corrected validation and matched-reference measurements. Q1 and Q4 remain partial: single-row subdomains and same-implementation 1 PE/4 PE scaling are not yet tested. Historical source snapshots, timings and traces below remain unchanged.
+
 ## Findings and limits
 
 The implementation completes CUDA-aware MPI boundary exchange and dependencies between streams. It also corrects synchronization when timing the end of the solve. Four logs preserve program summaries printed after numerical checks. Four-GPU time falls from 0.4040 s to 0.3038 s as `nccheck` changes from `1` to `100`.

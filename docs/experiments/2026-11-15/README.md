@@ -6,13 +6,17 @@
 
 本记录帮助课后读者查阅当天实现、实验结果及仍需验证的问题。实验对应本仓库的分布式 GPU 教程，课程入口见 [根目录 README](../../../README.zh-CN.md)。
 
+## 后续研究 — 2026-11-16
+
+本页描述 11 月 15 日的证据。[11 月 16 日研究日志](../../../research/2026-11-16/README.md)及[发现/状态对照](../../../research/2026-11-16/FINDINGS.md)补充了严格验证与匹配参考测量。Q1、Q4 仍为部分完成：单行子域与同实现 1 PE/4 PE 强扩展尚未测试。下方历史源码快照、耗时与 trace 保持原样。
+
 ## 今日结论
 
 已保存当天的实现快照、6 篇英中日三语报告、22 条可读取的正式或历史 benchmark 结果，以及 56 份 Nsight Systems 报告。原课程 `tasks/` 与 `solutions/` 文件保持原样，完成版本放在各章报告的 `archive/` 中。
 
 - **已保留的实现：** MPI 重叠、NCCL Host、NVSHMEM Host、NCCL Device 的 LSA 写入、CUDA Graph 和 NVSHMEM Device 配置。
 - **已核对的后续结果：** NVSHMEM Host 受控复查未复现早期慢速；CUDA Graph 优先级只有单次对照；超过 100% 的打印效率存在参考 kernel 配置差异。
-- **仍需补充：** 第 04 章最后一行与非有限值检查、NCCL Host benchmark 原始输出、相同尺度的 Nsight 截图，以及公平基准和重复测量。
+- **当前后续状态：** Chapter04 末行/非有限值重跑日志与参考几何重复测量已补齐；单行测试、同实现强扩展、NCCL Host 输出、trace 截图、Graph 重复测量和 Host 异常仍开放，见[11 月 16 日发现](../../../research/2026-11-16/FINDINGS.md)。
 
 本次整理仅核对已有文件、源码和算术，没有在 GPU 集群上重新编译或执行。失败运行与成功运行分开记录，短 trace 时间不作为 1000 次迭代的 benchmark。
 

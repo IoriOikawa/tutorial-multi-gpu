@@ -35,3 +35,11 @@ python3 ../summarize_matched.py
 `SHA256SUMS` covers all publication files except itself. `evidence-map.csv` records unchanged evidence files copied from the checkpoint. The original research log is separately identified in `provenance.json`. Fresh summary output is derived data and is not part of the original manifest.
 
 These are archive and analysis checks. They do not establish historical executable provenance beyond matching the supplied hashes, and they do not constitute a fresh GPU execution, compiler validation or profiling experiment.
+
+## Trilingual integration and descriptive statistics
+
+The follow-up integration adds equivalent [English](README.en.md), [Simplified Chinese](README.md) and [Japanese](README.ja.md) research indices and findings. It compares the old questions and missing-information checklist at `9cccb76` with evidence preserved in `e1985a0`. Both broader questions remain partial; single-row subdomains and same-implementation 1 PE/4 PE scaling are not claimed as tested.
+
+Run `python3 analysis/summarize_primary.py` from this directory to regenerate the two new analysis CSVs. Quartiles use `statistics.quantiles(n=4, method='inclusive')`; B/C pairs share repetition, job and node. An independent NumPy percentile calculation agrees with all 72 median/quartile statistics. Both paired rows were independently checked. The generated tables are descriptive summaries, not confidence intervals.
+
+All 197 mapped checkpoint evidence files and the author's original log retain their original SHA-256 hashes. New links and source-line targets, three-language result tables and privacy patterns were checked before integration. The [translation and integration check record](analysis/translation-checks.json) identifies the checks and document coverage. The publication manifest is regenerated for these added documents and derived tables; the original evidence map remains unchanged.

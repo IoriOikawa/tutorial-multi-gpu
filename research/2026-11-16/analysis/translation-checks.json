@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-16",
+  "languages": [
+    "English",
+    "简体中文",
+    "日本語"
+  ],
+  "comparison_base": "9cccb76505c44c0ec316cef6b3e25e43e494fdac",
+  "evidence_commit": "e1985a0c42546d8f0afcc3766c9ae8df30d5530f",
+  "documents": [
+    "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.en.md",
+    "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.ja.md",
+    "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.md",
+    "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.en.md",
+    "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.ja.md",
+    "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.md",
+    "README.ja.md",
+    "README.md",
+    "README.zh-CN.md",
+    "docs/experiments/2026-11-15/MISSING_INFORMATION.en.md",
+    "docs/experiments/2026-11-15/MISSING_INFORMATION.ja.md",
+    "docs/experiments/2026-11-15/MISSING_INFORMATION.md",
+    "docs/experiments/2026-11-15/OPEN_QUESTIONS.en.md",
+    "docs/experiments/2026-11-15/OPEN_QUESTIONS.ja.md",
+    "docs/experiments/2026-11-15/OPEN_QUESTIONS.md",
+    "docs/experiments/2026-11-15/README.en.md",
+    "docs/experiments/2026-11-15/README.ja.md",
+    "docs/experiments/2026-11-15/README.md",
+    "research/2026-11-16/FINDINGS.en.md",
+    "research/2026-11-16/FINDINGS.ja.md",
+    "research/2026-11-16/FINDINGS.md",
+    "research/2026-11-16/README.en.md",
+    "research/2026-11-16/README.ja.md",
+    "research/2026-11-16/README.md",
+    "research/2026-11-16/VERIFICATION.md"
+  ],
+  "checks": {
+    "original_mapped_evidence_files_unchanged": 197,
+    "original_author_log_unchanged": true,
+    "local_link_and_source_line_targets": "checked",
+    "findings_numeric_tables": "identical across three languages",
+    "question_status": "Q1/Q4 partial, Q2/Q3 open; single-row and same-implementation scaling untested",
+    "statistics": "all 72 medians/quartiles independently agree with NumPy linear percentiles",
+    "paired_geometry": "both rows independently checked; eight matching pairs per interval",
+    "published_derivation_script": "regenerates both derived CSV files byte for byte",
+    "new_prose_privacy_scan": "no account path, personal identifier or credential-pattern finding",
+    "independent_review": "no critical or important issues"
+  },
+  "gpu_experiments_rerun": false,
+  "interpretation": "document and evidence checks; not a new GPU run, statistical significance claim or guarantee of translation perfection"
+}

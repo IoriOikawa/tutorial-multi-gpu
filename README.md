@@ -6,8 +6,17 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745504.svg)](https://doi.org/10.5281/zenodo.5745504)
 
-
 Repository with talks and exercises of our Efficient GPU Programming for Exascale tutorial, to be held at [SC26](https://sc26.conference-program.com/presentation/?id=tut120&sess=sess190).
+
+## Research checkpoint — 16 November 2026
+
+Today's follow-up verifies Chapter04's last-row/non-finite fixes (12 positive tests and 3 negative controls) and tests NVSHMEM reference geometry with 64 primary measurements plus 9 extra repetitions. At `nccheck=10`, median reported efficiency changes from 105.5985% to 92.8498% when the reference geometry is matched. Single-row subdomains and same-implementation 1 PE/4 PE scaling remain open.
+
+- [Research log and evidence index](research/2026-11-16/README.en.md)
+- [Findings, statistical analysis and progress against earlier questions](research/2026-11-16/FINDINGS.en.md)
+- [Updated open questions](docs/experiments/2026-11-15/OPEN_QUESTIONS.en.md) and [missing-information checklist](docs/experiments/2026-11-15/MISSING_INFORMATION.en.md)
+
+The two broader research questions are partially addressed. Original evidence is preserved, and this documentation review did not rerun the GPU experiments.
 
 ## Experiment records from 15 November 2026
 
@@ -29,7 +38,6 @@ Start with the [environment, timing conventions, and evidence index](docs/experi
 * Tutors: Simon Garcia de Gonzalo (SNL), Oded Green (NVIDIA), Andreas Herten (JSC), Lena Oden (Uni Hagen)
 * Support: David Appelhans (NVIDIA), Markus Hrywniak (NVIDIA), and Jiri Kraus (NVIDIA)
 
-
 ## Setup
 
 The tutorial is an interactive tutorial with introducing lectures and practical exercises to apply knowledge. The exercises have been derived from the Jacobi solver implementations available in [NVIDIA/multi-gpu-programming-models](https://github.com/NVIDIA/multi-gpu-programming-models).
@@ -42,7 +50,6 @@ Overview (only possible on-site at SC26!):
 * Source course environment: `source $PROJECT_training26XX/env.sh`
 * Sync material: `jsc-material-sync`
 * Locally install NVIDIA Nsight Systems: https://developer.nvidia.com/nsight-systems
-
 
 1. Lecture: Tutorial Overview, Introduction to System + Onboarding *Andreas*
 2. Lecture: Introduction to MPI-Distributed Computing with GPUs *Simon*

@@ -1,59 +1,39 @@
-# SC26 GPU research checkpoint — 16 November 2026
+# SC26 GPU 研究日志 — 2026-11-16
 
-Review the evidence for MPI numerical validation and the NVSHMEM reference-geometry experiment.
+[English](README.en.md) | [简体中文](README.md) | [日本語](README.ja.md)
 
-Date: 2026-11-16. Audience: researchers reviewing or reproducing these GPU experiments.
+查阅 MPI 严格数值验证、NVSHMEM 参考几何对照及其对既有问题的回答。
 
-## Overview
+日期：2026-11-16。读者：复核或复现实验的研究者。
 
-The archived logs support 12 successful Chapter04 positive tests and three correctly rejected negative controls. Chapter09A contains 64 primary measurements and nine additional valid repetitions. All 73 accepted measurements passed full-interior numerical validation. These checks were repeated against archived files on a Mac; the GPU experiments were not rerun.
+## 概览
 
-At `nccheck=10`, changing the single-GPU reference geometry reduces median reported efficiency from 105.5985% to 92.8498%, while the four-GPU runtime stays nearly unchanged. This supports reference-geometry mismatch as the explanation for the apparent superlinear efficiency. It does not establish same-implementation strong scaling or prove an atomic-contention mechanism.
+Chapter04 修复了最后有效行遗漏与非有限值检查，12 项正向验证通过，3 项注入错误被拒绝。Chapter09A 保存了 64 项主测量和 9 项额外有效重复。`nccheck=10` 时，匹配参考几何使效率中位数从 105.5985% 降至 92.8498%，四 GPU 耗时基本不变。
 
-Read the [original research log](RESEARCH_LOG.original.md) for the author's complete account. It is preserved byte for byte. Use the [verification record](VERIFICATION.md) for the checks performed during archiving.
+两个核心子问题已有回答，但两个原始研究问题仍为部分完成。单行子域与同一 NVSHMEM 实现的 1 PE/4 PE 强扩展尚未测试。Graph 优先级稳定性、Host 异常和缺失旧资料仍待解决。本次合并核对已有集群日志，没有重新运行 GPU 实验。
 
-## Find the evidence
+## 研究日志、发现与分析入口
 
-- [Chapter04 validation results](chapter04-mpi-validation/validation_results.csv): six baseline passes, six overlap passes, and NaN/Inf/finite-error failures.
-- [Chapter09A primary dataset](chapter09a-nvshmem/summary/20261116T155724Z/benchmark_results.csv): eight repetitions for each configuration and norm-check interval.
-- [All accepted measurements](chapter09a-nvshmem/summary/20261116T155724Z/all_valid_results.csv), [extra repetitions](chapter09a-nvshmem/summary/20261116T155724Z/extra_repeats.csv), and [rejected logs](chapter09a-nvshmem/summary/20261116T155724Z/rejected_logs.csv).
-- [Allocation summaries](chapter09a-nvshmem/summary/20261116T155724Z/summary_by_allocation.csv) and [recomputed medians](chapter09a-nvshmem/summary/medians.csv).
-- [Evidence mapping](evidence-map.csv): publication paths, original checkpoint paths, and SHA-256 hashes.
-- [Provenance](provenance.json): identities of the original ZIP, checkpoint archive, and research log.
+- [发现、统计分析与问题逐项对照](FINDINGS.md)。
+- [用户原始研究日志（英文原文）](RESEARCH_LOG.original.md)：逐字节保留，后续状态核对单独记录。
+- [Chapter04 验证结果](chapter04-mpi-validation/validation_results.csv)。
+- [Chapter09A 主数据](chapter09a-nvshmem/summary/20261116T155724Z/benchmark_results.csv)、[全部有效数据](chapter09a-nvshmem/summary/20261116T155724Z/all_valid_results.csv)、[额外重复](chapter09a-nvshmem/summary/20261116T155724Z/extra_repeats.csv)及[排除日志](chapter09a-nvshmem/summary/20261116T155724Z/rejected_logs.csv)。
+- [中位数与四分位数](analysis/primary_summary.csv)、[同 allocation 配对](analysis/paired_geometry.csv)及[结构化状态](analysis/question_status.json)。
+- [英文归档核验](VERIFICATION.md)、[文件来源](evidence-map.csv)、[归档标识](provenance.json)与[第三方许可声明](THIRD_PARTY_NOTICES.md)。
 
-Chapter directories retain the relative layout expected by the original scripts. Source snapshots are in `source/` and `work/`; the Chapter04 baseline also has `baseline_strict/original/` and `baseline_strict/work/`. Original patches and per-build hash manifests remain beside those directories.
+![64 项主测量中，检查间隔为 10 时 B/C 的四 GPU 耗时几乎相同；改变参考几何使效率中位数从 105.60% 降至 92.85%。](figures/matched-geometry.png)
 
-## Interpret the comparison
+## 复现分析
 
-The following table is intended for GitHub's desktop document view. NVSHMEM is NVIDIA's shared-memory communication library. Here, a processing element (PE) corresponds to one GPU process. `nccheck` is the norm-check interval in iterations.
+1. 在本目录执行 `shasum -a 256 -c SHA256SUMS`。
+2. 进入 `chapter09a-nvshmem/work`，运行 `python3 ../summarize_matched.py`。新生成 UTC 时间戳目录中的 6 张 CSV 应与归档表的解析行一致。
+3. 安装 Matplotlib 后，在本目录运行 `python3 figures/plot_results.py`，从 64 项主数据重新绘图。
+4. 执行 `python3 analysis/summarize_primary.py`，仅用 Python 标准库重新生成主样本中位数、包含式四分位数及同 allocation 配对变化。
 
-| Mode | Single-GPU reference | Four-GPU solver |
-|---|---|---|
-| A | 32×32 threads/block | Scalar 2D |
-| B | 32×32 threads/block | Scalar 1D |
-| C | 256×1 threads/block | Scalar 1D |
-| D | 256×1 threads/block | Block-cooperative put |
+各章目录保留源码快照、补丁与原构建哈希。GPU 重跑需要兼容的 CUDA、MPI、NVSHMEM 和四 GPU Slurm allocation。请在独立副本中调整环境路径并重新构建。原 `build.sha256` 还列有未发布的历史可执行文件；新构建未必具有相同哈希。旧日志完整时，`resume_matched.py --run` 不会启动新实验。新测量请使用独立副本和新的日志目录。
 
-All primary measurements use a 16,384×16,384 grid, 1,000 iterations and four GPUs. Each mode/interval has eight primary measurements. Five Slurm allocations cover four compute nodes. Primary selection favors the original run, then the earliest valid resumed run; it does not select the fastest timing. Nine valid duplicates remain separate.
+## 发布范围
 
-![Primary median runtimes and reported efficiencies for modes A–D at norm-check intervals 1 and 10. For interval 10, modes B and C have almost identical four-GPU runtimes but efficiencies of 105.60% and 92.85% because their single-GPU references differ.](figures/matched-geometry.png)
+完整 ZIP/tar、可执行文件、对象文件、缓存、macOS 元数据、构建日志、分配转储和 GPU 清单留在本地。已选原始证据与用户日志未改写，源码内的许可证声明保留。Job ID、节点标签、进程编号和 CPU 绑定用于区分实验，见[发布检查](RELEASE_REVIEW.md)。
 
-Reported efficiency is `100 × ref_sec / (4 × parallel_sec)`. The table and plot use the median of each recorded metric independently; the median efficiency need not equal the ratio of the median runtimes. `parallel_sec` is the maximum rank solver time. The recorded reference also includes `ref_max_sec`, but reported efficiency uses `ref_sec`.
-
-The geometry performance ordering reverses between norm-check intervals 1 and 10. Extra block reductions or global atomics are a hypothesis for future profiling. The Chapter04 baseline and overlap timings came from separate allocations and support a descriptive comparison. An earlier failed baseline smoke attempt remains in the logs, separate from the 12 successful tests.
-
-## Reproduce the analysis
-
-1. From this directory, verify publication bytes with `shasum -a 256 -c SHA256SUMS`.
-2. Enter `chapter09a-nvshmem/work` and run `python3 ../summarize_matched.py`. This creates a new UTC-stamped summary directory; the six CSV tables should have the same parsed rows as `../summary/20261116T155724Z/`.
-3. From this directory, run `python3 figures/plot_results.py` with Matplotlib installed to regenerate the figure. The plot uses only the 64 primary rows.
-
-To rerun GPU experiments, use a compatible NVIDIA GPU cluster with CUDA, MPI (Message Passing Interface), NVSHMEM and the course environment. The preserved Makefiles use environment-specific compiler and library paths. Rebuild in a working copy. The old `build.sha256` files describe the archived binaries and sources; binaries are intentionally absent here, and a new build may have a different hash.
-
-After securing a suitable four-GPU Slurm allocation, the original Chapter09A `resume_matched.py --run` can run missing cases. With the complete preserved logs present it finds no missing cases. To collect a new experiment, use a separate working copy and a fresh log directory; retain this evidence unchanged. No cluster reservation or allocation is requested by the analysis commands above.
-
-## Understand the publication boundary
-
-The full original ZIP and checkpoint archive remain local. This directory excludes compiled executables, object files, Python caches, macOS metadata, build logs, allocation dumps and GPU inventories. Selected evidence files and the original research log are unchanged. There was no need to rewrite their content: personal account information occurs in excluded metadata.
-
-Slurm job identifiers and compute-node labels remain in CSVs and run logs because they support allocation pairing. The [release review](RELEASE_REVIEW.md) records this disclosure and the exact exclusions. The [third-party notices](THIRD_PARTY_NOTICES.md) identify the source-file licenses. The checkpoint contains only the two November 16 research directories; it does not include the previous day's 56 Nsight Systems reports.
+本 checkpoint 仅含 Chapter04 和 Chapter09A。前一天的 56 份 Nsight 报告仍位于[原实验索引](../../docs/experiments/2026-11-15/README.md)所指位置。缺失旧输出与 trace 截图没有因本次归档自动补齐。

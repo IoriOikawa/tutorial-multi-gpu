@@ -6,13 +6,17 @@ Record date: 2026-11-15 (America/Chicago). For reviewing and reproducing the exp
 
 These records help course participants find the day's implementations, results, and questions that still need verification. The experiments follow this repository's distributed GPU tutorial. Start with the [root README](../../../README.md) for the course.
 
+## Follow-up — 2026-11-16
+
+This page describes the November 15 evidence. The [November 16 research log](../../../research/2026-11-16/README.en.md) and [findings/status comparison](../../../research/2026-11-16/FINDINGS.en.md) add corrected validation and matched-reference measurements. Q1 and Q4 remain partial: single-row subdomains and same-implementation 1 PE/4 PE scaling are not yet tested. Historical source snapshots, timings and traces below remain unchanged.
+
 ## Findings from the day
 
 The archive preserves implementation snapshots, six reports available in three languages, 22 readable formal or historical benchmark results, and 56 Nsight Systems reports. The original course `tasks/` and `solutions/` files remain unchanged. Completed versions are in each chapter report's `archive/` directory.
 
 - **Preserved implementations:** MPI overlap, NCCL Host, NVSHMEM Host, NCCL Device LSA writes, CUDA Graph, and NVSHMEM Device configurations.
 - **Checked follow-up results:** The controlled NVSHMEM Host recheck did not reproduce the early slowdown. CUDA Graph priority has only one comparison per setting. Printed efficiencies above 100% involve different reference kernel configurations.
-- **Still needed:** Chapter 04 reruns with last-row and non-finite-value checks, original NCCL Host benchmark output, Nsight screenshots at matching scales, fair baselines, and repeated measurements.
+- **Current follow-up:** Chapter04 last-row/non-finite rerun logs and reference-geometry repetitions are now available. Single-row tests, same-implementation scaling, NCCL Host output, trace screenshots, Graph repetitions and the Host anomaly remain open; see the [November 16 findings](../../../research/2026-11-16/FINDINGS.en.md).
 
 This review checked existing files, source code, and arithmetic only. It did not rebuild or run programs on the GPU cluster. Failed runs are recorded separately from successful runs. Short trace timings are not treated as 1000-iteration benchmarks.
 

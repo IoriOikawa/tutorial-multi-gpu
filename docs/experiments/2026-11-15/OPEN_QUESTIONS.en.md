@@ -6,13 +6,19 @@ Record date: 2026-11-15 (America/Chicago). For reviewing and reproducing the exp
 
 This page preserves unfinished experiment questions so that proposals are not presented as results. Related earlier observations remain in the reports and logs linked from the [day's experiment index](README.en.md).
 
+## Status update — 2026-11-16
+
+[Today's findings and evidence comparison](../../../research/2026-11-16/FINDINGS.en.md) verifies two core subquestions: Chapter04's last-row/non-finite defects and the NVSHMEM reference-geometry explanation. Q1 and Q4 remain partial because same-implementation 1 PE/4 PE scaling and single-row subdomains are untested. Q2/Q3 have no new results. IDs follow the original section order; older observations remain historical evidence, not newly rerun measurements.
+
 ## Recalculate efficiency with matched thread-block configurations
 
-**Current evidence:** The NVSHMEM Device single-GPU reference is fixed at 32×32, while scalar one-dimensional and block modes use 256×1. The observed 0.292928 s and 105.64% do not establish strong scaling with matching kernel shapes.
+**Status — partial (Q1), 2026-11-16.** The earlier 0.292928 s / 105.64% observation used a 32×32 pure-CUDA reference for a 256×1 distributed solver. The new [64 primary measurements](../../../research/2026-11-16/chapter09a-nvshmem/summary/20261116T155724Z/benchmark_results.csv) and nine extras test selectable reference geometry with strict validation.
 
-**Next step:** Match the single-GPU thread block, reduction method, dimensions, iterations, warm-up, and norm checks. Also compare 1 PE and 4 PE using the same NVSHMEM implementation. Distinguish the pure CUDA reference from a 1 PE baseline that includes the communication runtime.
+**Resolved subquestion:** At `nccheck=10`, B→C changes reference median 1.236389→1.088770 s, parallel median 0.292782→0.292753 s, and reported efficiency 105.5985%→92.8498%. Eight same-job/node/repetition B/C pairs per interval support the reference-geometry explanation. See [statistics and limitations](../../../research/2026-11-16/FINDINGS.en.md).
 
-**Completion criteria:** Preserve source and full commands for each configuration. Repeat measurements within one job and report variation. Recalculate speedup and efficiency with matched timings. These new results are not currently available.
+**Remaining work:** Compare 1 PE and 4 PE using the same NVSHMEM implementation. Distinguish pure CUDA from a baseline including the communication runtime. Complete baseline-equivalence controls for reduction method, dimensions, iterations, warm-up and norm checks; report uncertainty. Eight samples per setting span shared allocations and are not eight independent allocations.
+
+**Completion criteria:** Preserve source and full launch procedures, repeated timings and variation, then calculate same-implementation scaling with documented controls. The geometry subquestion is answered; the broader strong-scaling question stays open.
 
 ## Test whether CUDA Graph node priority gives a stable benefit
 
@@ -32,8 +38,10 @@ This page preserves unfinished experiment questions so that proposals are not pr
 
 ## Complete Chapter 04 numerical checks
 
-**Current evidence:** The check loop uses a strict less-than comparison against the last valid row index, excluding each rank's last row. It also does not explicitly reject non-finite values. Current logs cannot establish that these cases were validated.
+**Status — partial (Q4), 2026-11-16.** The old snapshots omit each rank's last row and do not explicitly reject non-finite values. New [overlap](../../../research/2026-11-16/chapter04-mpi-validation/work/jacobi.cpp#L595) and [baseline](../../../research/2026-11-16/chapter04-mpi-validation/baseline_strict/work/jacobi.cpp#L333) snapshots fix both defects and report global coverage/error counts.
 
-**Next step:** Extend checks in a new implementation version. Rerun with grids that do not divide evenly, single-row subdomains, odd and even iteration counts, and sparse norm checks. Preserve old results and number new results separately.
+**Verified results:** [Twelve positive tests and three negative controls](../../../research/2026-11-16/chapter04-mpi-validation/validation_results.csv) cover uneven grids, odd/even iterations and sparse norm checks. NaN, Inf and finite errors injected at the last owned row fail with exit code 1. Original files and failed preliminary runs are retained.
 
-**Completion criteria:** Print the valid grid range covered and all failure conditions. Preserve rerun logs, then update the Chapter 04 report. This was not implemented during the current archive review.
+**Remaining work:** Single-row subdomains have no rerun log; the smallest cases have 64–65 owned rows per rank. Baseline/overlap performance measurements are from separate jobs/nodes and need controlled repeated measurements within one allocation.
+
+**Completion criteria:** Add explicit single-row subdomain tests and preserve their coverage/failure output. Keep the old evidence and new snapshots separately identified. The tested validator defects are resolved; the full requested validation matrix remains incomplete. The [Chapter04 report](../../../04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.en.md) links this follow-up.
