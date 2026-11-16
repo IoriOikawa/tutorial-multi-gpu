@@ -1,0 +1,16 @@
+variant,log_path,result,checked,expected,nonfinite,mismatches,max_abs_error,tol
+overlap,logs/bench_nc001.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+overlap,logs/bench_nc010.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+overlap,logs/short_nc010.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+overlap,logs/smoke_even.log,PASS,66563,66563,0,0,0,9.99999993923e-09
+overlap,logs/smoke_odd.log,PASS,66563,66563,0,0,0,9.99999993923e-09
+overlap,logs/tail_nc020.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+baseline,baseline_strict/logs/run_20261116T135720Z_job2938812/bench_nc001.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+baseline,baseline_strict/logs/run_20261116T135720Z_job2938812/bench_nc010.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+baseline,baseline_strict/logs/run_20261116T135720Z_job2938812/short_nc010.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+baseline,baseline_strict/logs/run_20261116T135720Z_job2938812/smoke_even.log,PASS,66563,66563,0,0,0,9.99999993923e-09
+baseline,baseline_strict/logs/run_20261116T135720Z_job2938812/smoke_odd.log,PASS,66563,66563,0,0,0,9.99999993923e-09
+baseline,baseline_strict/logs/run_20261116T135720Z_job2938812/tail_nc020.log,PASS,268369924,268369924,0,0,0,9.99999993923e-09
+negative,negative_control/finite.log,FAIL,66563,66563,0,1,0.999999988824,9.99999993923e-09
+negative,negative_control/inf.log,FAIL,66563,66563,1,0,0,9.99999993923e-09
+negative,negative_control/nan.log,FAIL,66563,66563,1,0,0,9.99999993923e-09

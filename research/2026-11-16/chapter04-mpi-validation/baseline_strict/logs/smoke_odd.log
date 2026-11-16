@@ -1,0 +1,16 @@
+Implementation: mpi_baseline_strict
+Job: 2938812
+Node: jpbo-101-05
+Arguments: -nx 261 -ny 259 -niter 3 -nccheck 3
+PSI: doSpawn: spawn to node 4806 failed: "testExecutable: stat(./jacobi): No such file or directory"
+PSI: doSpawn: spawn to node 4806 failed: "testExecutable: stat(./jacobi): No such file or directory"
+PSI: doSpawn: spawn to node 4806 failed: "testExecutable: stat(./jacobi): No such file or directory"
+PSI: doSpawn: spawn to node 4806 failed: "testExecutable: stat(./jacobi): No such file or directory"
+Could not spawn './jacobi' process 0: No such file or directory
+Could not spawn './jacobi' process 1: No such file or directory
+Could not spawn './jacobi' process 2: No such file or directory
+Could not spawn './jacobi' process 3: No such file or directory
+spawnSingleExecutable: PSI_spawnRsrvtn() failed
+Unable to start all processes. Aborting.
+srun: error: jpbo-101-05: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=2938812.0

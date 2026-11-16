@@ -1,0 +1,35 @@
+=== bench B nc=1 rep=2 ===
+Job: 2939543
+Node: jpbo-101-03
+cpu_bind=SOCKETS - jpbo-101-03, task  2  2 [1021299]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-03, task  3  3 [1021297]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-03, task  1  1 [1021300]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-03, task  0  0 [1021298]: mask 0xffffffffffffffffff set
+Single GPU jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 1 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535684
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235509
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+REFERENCE_GEOMETRY: 32x32
+nvshmem_device_scalar_1d Jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 1 iterations
+    0, 31.999010
+  100, 0.897983
+  200, 0.535685
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235510
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+STRICT_VALIDATION: PASS checked=268369924 expected=268369924 nonfinite=0 mismatches=0 max_abs_error=0 tol=9.99999993923e-09 ref_iters=1000 multi_iters=1000
+MATCHED_RESULT: method=nvshmem_device_scalar_1d ref=32x32 nx=16384 ny=16384 iter=1000 nc=1 pes=4 ref_sec=1.680915098 ref_max_sec=1.684840007 parallel_sec=0.595905981 speedup=2.820772322 efficiency=70.519308062
+Num GPUs: 4.
+16384x16384: 1 GPU:   1.6809 s, 4 GPUs:   0.5959 s, speedup:     2.82, efficiency:    70.52 
+Rank 0 solver time: 0.595906 s; max rank solver time: 0.595906 s

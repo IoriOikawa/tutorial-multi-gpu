@@ -1,0 +1,14 @@
+cpu_bind=SOCKETS - jpbo-101-03, task  2  2 [1011931]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-03, task  1  1 [1011930]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-03, task  0  0 [1011929]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-101-03, task  3  3 [1011928]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+Single GPU jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+REFERENCE_GEOMETRY: 256x1
+nvshmem_device_scalar_1d Jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+STRICT_VALIDATION: PASS checked=66563 expected=66563 nonfinite=0 mismatches=0 max_abs_error=0 tol=9.99999993923e-09 ref_iters=3 multi_iters=3
+MATCHED_RESULT: method=nvshmem_device_scalar_1d ref=256x1 nx=261 ny=259 iter=3 nc=3 pes=4 ref_sec=0.000108702 ref_max_sec=0.000108702 parallel_sec=0.000367512 speedup=0.295778097 efficiency=7.394452426
+Num GPUs: 4.
+259x261: 1 GPU:   0.0001 s, 4 GPUs:   0.0004 s, speedup:     0.30, efficiency:     7.39 
+Rank 0 solver time: 0.000365 s; max rank solver time: 0.000368 s

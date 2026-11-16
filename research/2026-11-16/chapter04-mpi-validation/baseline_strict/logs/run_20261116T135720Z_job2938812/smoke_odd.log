@@ -1,0 +1,16 @@
+=== smoke_odd ===
+Implementation: mpi_baseline_strict
+Job: 2938812
+Node: jpbo-101-05
+Arguments: -nx 261 -ny 259 -niter 3 -nccheck 3
+cpu_bind=SOCKETS - jpbo-101-05, task  0  0 [764793]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-101-05, task  2  2 [764794]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-05, task  1  1 [764792]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-05, task  3  3 [764795]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+Single GPU jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+Jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+STRICT_VALIDATION: PASS checked=66563 expected=66563 nonfinite=0 mismatches=0 max_abs_error=0 tol=9.99999993923e-09
+Num GPUs: 4.
+259x261: 1 GPU:   0.0036 s, 4 GPUs:   0.0001 s, speedup:    25.47, efficiency:   636.64 
