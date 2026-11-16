@@ -1,0 +1,4 @@
+=== A nc=10 rep=4 ===
+Job: 2939921
+Node: jpbo-101-03
+srun: Job 2939921 step creation temporarily disabled, retrying (Requested nodes are busy)

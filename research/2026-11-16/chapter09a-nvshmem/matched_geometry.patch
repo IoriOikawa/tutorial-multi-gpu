@@ -1,0 +1,224 @@
+--- ../source/jacobi.cu	2026-11-16 04:45:16.870929000 +0100
++++ jacobi.cu	2026-11-16 15:46:10.472255000 +0100
+@@ -190,7 +190,8 @@
+ }
+ 
+ double single_gpu(const int nx, const int ny, const int iter_max, real* const a_ref_h,
+-                  const int nccheck, const bool print, const bool csv);
++                  const int nccheck, const bool print, const bool csv,
++                  const bool ref_1d, int& ref_iters);
+ 
+ template <typename T>
+ T get_argval(char** begin, char** end, const std::string& arg, const T default_val) {
+@@ -227,6 +228,7 @@
+     const bool csv = get_arg(argv, argv + argc, "-csv");
+     const bool block_comm = get_arg(argv, argv + argc, "-use_block_comm");
+     const bool scalar_1d = get_arg(argv, argv + argc, "-scalar_1d");
++    const bool ref_1d = get_arg(argv, argv + argc, "-ref_1d");
+     if (num_devices <= 0 || nx < 3 || ny < 3 || ny - 2 < size ||
+         nccheck <= 0 || iter_max < 0 || (block_comm && scalar_1d)) {
+         fprintf(stderr, "Invalid GPU count, mesh, iteration/check interval or communication flags.\n");
+@@ -266,7 +268,22 @@
+     CUDA_RT_CALL(cudaMallocHost(&a_ref_h, nx * ny * sizeof(real)));
+     real* a_h;
+     CUDA_RT_CALL(cudaMallocHost(&a_h, nx * ny * sizeof(real)));
+-    double runtime_serial = single_gpu(nx, ny, iter_max, a_ref_h, nccheck, !csv && (0 == rank), csv);
++    int ref_iters = -1;
++
++    double runtime_serial = single_gpu(
++        nx, ny, iter_max, a_ref_h, nccheck,
++        !csv && (0 == rank), csv, ref_1d, ref_iters);
++
++    double runtime_serial_max = 0.0;
++
++    MPI_CALL(MPI_Allreduce(
++        &runtime_serial, &runtime_serial_max,
++        1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORLD));
++
++    if (rank == 0) {
++        printf("REFERENCE_GEOMETRY: %s\n",
++               ref_1d ? "256x1" : "32x32");
++    }
+ 
+     // ny - 2 rows are distributed amongst `size` ranks in such a way
+     // that each rank gets either (ny - 2) / size or (ny - 2) / size + 1 rows.
+@@ -416,26 +433,115 @@
+                             static_cast<size_t>(chunk_size) * nx * sizeof(real),
+                             cudaMemcpyDeviceToHost));
+ 
++    // Complete owned-interior validation.
+     int result_correct = 1;
+-    for (int iy = iy_start_global; result_correct && (iy <= iy_end_global); ++iy) {
+-        for (int ix = 1; result_correct && (ix < (nx - 1)); ++ix) {
+-            if (!std::isfinite(a_h[iy * nx + ix]) ||
+-                !std::isfinite(a_ref_h[iy * nx + ix]) ||
+-                std::fabs(a_ref_h[iy * nx + ix] - a_h[iy * nx + ix]) > tol) {
+-                fprintf(stderr,
+-                        "ERROR on rank %d: a[%d * %d + %d] = %f does not match %f "
+-                        "(reference)\n",
+-                        rank, iy, nx, ix, a_h[iy * nx + ix], a_ref_h[iy * nx + ix]);
++    unsigned long long checked = 0;
++    unsigned long long nonfinite = 0;
++    unsigned long long mismatches = 0;
++    double max_abs_error = 0.0;
++
++    for (int iy = iy_start_global; iy <= iy_end_global; ++iy) {
++        for (int ix = 1; ix < nx - 1; ++ix) {
++            const size_t idx = static_cast<size_t>(iy) * nx + ix;
++            const double got = static_cast<double>(a_h[idx]);
++            const double ref = static_cast<double>(a_ref_h[idx]);
++
++            ++checked;
++
++            if (!std::isfinite(got) || !std::isfinite(ref)) {
++                ++nonfinite;
++                if (result_correct) {
++                    fprintf(stderr,
++                        "ERROR rank %d: nonfinite at (%d,%d)\n",
++                        rank, iy, ix);
++                }
++                result_correct = 0;
++                continue;
++            }
++
++            const double err = std::fabs(got - ref);
++            max_abs_error = std::max(max_abs_error, err);
++
++            if (err > static_cast<double>(tol)) {
++                ++mismatches;
++                if (result_correct) {
++                    fprintf(stderr,
++                        "ERROR rank %d: mismatch at (%d,%d), "
++                        "got=%.12g ref=%.12g err=%.12g\n",
++                        rank, iy, ix, got, ref, err);
++                }
+                 result_correct = 0;
+             }
+         }
+     }
+ 
++    unsigned long long local_counts[3] = {
++        checked, nonfinite, mismatches
++    };
++    unsigned long long global_counts[3] = {};
++
++    MPI_CALL(MPI_Allreduce(
++        local_counts, global_counts, 3,
++        MPI_UNSIGNED_LONG_LONG, MPI_SUM, MPI_COMM_WORLD));
++
++    double global_max_error = 0.0;
++
++    MPI_CALL(MPI_Allreduce(
++        &max_abs_error, &global_max_error, 1,
++        MPI_DOUBLE, MPI_MAX, MPI_COMM_WORLD));
++
++    const unsigned long long expected =
++        static_cast<unsigned long long>(ny - 2) * (nx - 2);
++
++    // This experiment requires the prescribed iteration count,
++    // rather than early convergence with unequal work.
++    if (global_counts[0] != expected ||
++        global_counts[1] != 0 ||
++        global_counts[2] != 0 ||
++        iter != iter_max ||
++        ref_iters != iter_max ||
++        !std::isfinite(l2_norm)) {
++        result_correct = 0;
++    }
++
+     int global_result_correct = 1;
+-    MPI_CALL(MPI_Allreduce(&result_correct, &global_result_correct, 1, MPI_INT, MPI_MIN,
+-                           MPI_COMM_WORLD));
++
++    MPI_CALL(MPI_Allreduce(
++        &result_correct, &global_result_correct,
++        1, MPI_INT, MPI_MIN, MPI_COMM_WORLD));
++
+     result_correct = global_result_correct;
+ 
++    if (rank == 0) {
++        printf(
++            "STRICT_VALIDATION: %s "
++            "checked=%llu expected=%llu "
++            "nonfinite=%llu mismatches=%llu "
++            "max_abs_error=%.12g tol=%.12g "
++            "ref_iters=%d multi_iters=%d\n",
++            result_correct ? "PASS" : "FAIL",
++            global_counts[0], expected,
++            global_counts[1], global_counts[2],
++            global_max_error, static_cast<double>(tol),
++            ref_iters, iter);
++
++        if (result_correct) {
++            printf(
++                "MATCHED_RESULT: method=%s ref=%s "
++                "nx=%d ny=%d iter=%d nc=%d pes=%d "
++                "ref_sec=%.9f ref_max_sec=%.9f "
++                "parallel_sec=%.9f "
++                "speedup=%.9f efficiency=%.9f\n",
++                method, ref_1d ? "256x1" : "32x32",
++                nx, ny, iter, nccheck, size,
++                runtime_serial, runtime_serial_max,
++                runtime_parallel,
++                runtime_serial / runtime_parallel,
++                100.0 * runtime_serial /
++                    (size * runtime_parallel));
++        }
++    }
++
+     if (rank == 0 && result_correct) {
+         if (csv) {
+             printf("%s, %d, %d, %d, %d, %d, 1, %f, %f\n", method, nx, ny, iter_max, nccheck, size,
+@@ -501,7 +607,8 @@
+ }
+ 
+ double single_gpu(const int nx, const int ny, const int iter_max, real* const a_ref_h,
+-                  const int nccheck, const bool print, const bool csv) {
++                  const int nccheck, const bool print, const bool csv,
++                  const bool ref_1d, int& ref_iters) {
+     real* a;
+     real* a_new;
+ 
+@@ -553,6 +660,14 @@
+     dim3 dim_grid((nx + dim_block_x - 1) / dim_block_x,
+                   ((iy_end - iy_start) + dim_block_y - 1) / dim_block_y, 1);
+ 
++    // Match the interior mapping of NVSHMEM scalar/block 1D.
++    constexpr int ref_block_1d = 256;
++
++    dim3 ref_grid_1d(
++        (nx - 2 + ref_block_1d - 1) / ref_block_1d,
++        iy_end - iy_start,
++        1);
++
+     int iter = 0;
+     real l2_norm = 1.0;
+     bool calculate_norm;
+@@ -566,8 +681,17 @@
+         CUDA_RT_CALL(cudaStreamWaitEvent(compute_stream, push_bottom_done, 0));
+ 
+         calculate_norm = (iter % nccheck) == 0 || (!csv && (iter % 100) == 0);
+-        jacobi_kernel_single_gpu<dim_block_x, dim_block_y><<<dim_grid, {dim_block_x, dim_block_y, 1}, 0, compute_stream>>>(
+-            a_new, a, l2_norm_d, iy_start, iy_end, nx, calculate_norm);
++        if (ref_1d) {
++            jacobi_kernel_single_gpu<ref_block_1d, 1>
++                <<<ref_grid_1d, ref_block_1d, 0, compute_stream>>>(
++                    a_new, a, l2_norm_d,
++                    iy_start, iy_end, nx, calculate_norm);
++        } else {
++            jacobi_kernel_single_gpu<dim_block_x, dim_block_y>
++                <<<dim_grid, {dim_block_x, dim_block_y, 1}, 0, compute_stream>>>(
++                    a_new, a, l2_norm_d,
++                    iy_start, iy_end, nx, calculate_norm);
++        }
+         CUDA_RT_CALL(cudaGetLastError());
+         CUDA_RT_CALL(cudaEventRecord(compute_done, compute_stream));
+ 
+@@ -600,6 +724,7 @@
+     }
+     CUDA_RT_CALL(cudaDeviceSynchronize());
+     double stop = MPI_Wtime();
++    ref_iters = std::isfinite(l2_norm) ? iter : -1;
+     POP_RANGE
+ 
+     CUDA_RT_CALL(cudaMemcpy(a_ref_h, a, nx * ny * sizeof(real), cudaMemcpyDeviceToHost));

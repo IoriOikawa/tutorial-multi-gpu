@@ -1,0 +1,19 @@
+{
+  "research_date": "2026-11-16",
+  "zip_name": "SC26.zip",
+  "zip_sha256": "4daf66aff914ac2049865780b751f33665565cc504103b4f9ae7203955354f17",
+  "checkpoint_name": "SC26_Research_Checkpoint_20261116_20261116T163109Z.tar.gz",
+  "checkpoint_sha256": "a92ced0fd91678a69e700d73fb7a46885aee66e195533aa5b17a76433d13f921",
+  "original_log_sha256": "3d3cc9efff37dea6fda272396784fdc146ef2ed95d094f416bc45ebeb8da007b",
+  "verified_embedded_hashes": 20,
+  "primary": 64,
+  "extra": 9,
+  "accepted": 73,
+  "rejected": 3,
+  "chapter04_positive": 12,
+  "chapter04_negative": 3,
+  "summary_reproduction": "All six CSV tables equal archived parsed rows, including ordering and sample selection",
+  "patch_reproduction": "All three patches reproduce archived validated source bytes",
+  "gpu_experiments_rerun": false,
+  "privacy": "Allocation dumps, account paths, GPU inventories, build logs and macOS metadata excluded; job IDs and compute-node labels retained for experimental pairing"
+}

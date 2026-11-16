@@ -1,0 +1,14 @@
+Job: 2938722
+Node: jpbo-101-04
+Arguments: -nx 16384 -ny 16384 -niter 10 -nccheck 20
+cpu_bind=SOCKETS - jpbo-101-04, task  2  2 [979957]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-04, task  0  0 [979956]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-101-04, task  1  1 [979954]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-04, task  3  3 [979955]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+Single GPU jacobi relaxation: 10 iterations on 16384 x 16384 mesh with norm check every 20 iterations
+    0, 31.999022
+Jacobi relaxation: 10 iterations on 16384 x 16384 mesh with norm check every 20 iterations
+    0, 31.999022
+STRICT_VALIDATION: PASS checked=268369924 expected=268369924 nonfinite=0 mismatches=0 max_abs_error=0 tol=9.99999993923e-09
+Num GPUs: 4.
+16384x16384: 1 GPU:   0.0122 s, 4 GPUs:   0.0032 s, speedup:     3.81, efficiency:    95.28 

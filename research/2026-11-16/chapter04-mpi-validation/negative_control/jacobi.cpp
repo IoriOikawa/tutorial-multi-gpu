@@ -1,0 +1,919 @@
+#include <cstdlib>
+#include <cstring>
+#include <limits>
+/* Copyright (c) 2017, NVIDIA CORPORATION. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *  * Neither the name of NVIDIA CORPORATION nor the names of its
+ *    contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+ * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+#include <algorithm>
+#include <cmath>
+#include <cstdio>
+#include <iostream>
+#include <sstream>
+
+#include <mpi.h>
+
+#define MPI_CALL(call)                                                                \
+    {                                                                                 \
+        int mpi_status = call;                                                        \
+        if (0 != mpi_status) {                                                        \
+            char mpi_error_string[MPI_MAX_ERROR_STRING];                              \
+            int mpi_error_string_length = 0;                                          \
+            MPI_Error_string(mpi_status, mpi_error_string, &mpi_error_string_length); \
+            if (NULL != mpi_error_string)                                             \
+                fprintf(stderr,                                                       \
+                        "ERROR: MPI call \"%s\" in line %d of file %s failed "        \
+                        "with %s "                                                    \
+                        "(%d).\n",                                                    \
+                        #call, __LINE__, __FILE__, mpi_error_string, mpi_status);     \
+            else                                                                      \
+                fprintf(stderr,                                                       \
+                        "ERROR: MPI call \"%s\" in line %d of file %s failed "        \
+                        "with %d.\n",                                                 \
+                        #call, __LINE__, __FILE__, mpi_status);                       \
+        }                                                                             \
+    }
+
+#include <cuda_runtime.h>
+
+#ifdef USE_NVTX
+#include <nvtx3/nvToolsExt.h>
+
+const uint32_t colors[] = {0x0000ff00, 0x000000ff, 0x00ffff00, 0x00ff00ff,
+                           0x0000ffff, 0x00ff0000, 0x00ffffff};
+const int num_colors = sizeof(colors) / sizeof(uint32_t);
+
+#define PUSH_RANGE(name, cid)                              \
+    {                                                      \
+        int color_id = cid;                                \
+        color_id = color_id % num_colors;                  \
+        nvtxEventAttributes_t eventAttrib = {0};           \
+        eventAttrib.version = NVTX_VERSION;                \
+        eventAttrib.size = NVTX_EVENT_ATTRIB_STRUCT_SIZE;  \
+        eventAttrib.colorType = NVTX_COLOR_ARGB;           \
+        eventAttrib.color = colors[color_id];              \
+        eventAttrib.messageType = NVTX_MESSAGE_TYPE_ASCII; \
+        eventAttrib.message.ascii = name;                  \
+        nvtxRangePushEx(&eventAttrib);                     \
+    }
+#define POP_RANGE nvtxRangePop();
+#else
+#define PUSH_RANGE(name, cid)
+#define POP_RANGE
+#endif
+
+#define CUDA_RT_CALL(call)                                                                  \
+    {                                                                                       \
+        cudaError_t cudaStatus = call;                                                      \
+        if (cudaSuccess != cudaStatus)                                                      \
+            fprintf(stderr,                                                                 \
+                    "ERROR: CUDA RT call \"%s\" in line %d of file %s failed "              \
+                    "with "                                                                 \
+                    "%s (%d).\n",                                                           \
+                    #call, __LINE__, __FILE__, cudaGetErrorString(cudaStatus), cudaStatus); \
+    }
+
+#ifdef USE_DOUBLE
+typedef double real;
+#define MPI_REAL_TYPE MPI_DOUBLE
+#else
+typedef float real;
+#define MPI_REAL_TYPE MPI_FLOAT
+#endif
+
+constexpr real tol = 1.0e-8;
+
+const real PI = 2.0 * std::asin(1.0);
+
+void launch_initialize_boundaries(real* __restrict__ const a_new, real* __restrict__ const a,
+                                  const real pi, const int offset, const int nx, const int my_ny,
+                                  const int ny);
+
+void launch_jacobi_kernel(real* __restrict__ const a_new, const real* __restrict__ const a,
+                          real* __restrict__ const l2_norm, const int iy_start, const int iy_end,
+                          const int nx, const bool calculate_norm, cudaStream_t stream);
+
+double single_gpu(const int nx, const int ny, const int iter_max, real* const a_ref_h,
+                  const int nccheck, const bool print);
+
+template <typename T>
+T get_argval(char** begin, char** end, const std::string& arg, const T default_val) {
+    T argval = default_val;
+    char** itr = std::find(begin, end, arg);
+    if (itr != end && ++itr != end) {
+        std::istringstream inbuf(*itr);
+        inbuf >> argval;
+    }
+    return argval;
+}
+
+bool get_arg(char** begin, char** end, const std::string& arg) {
+    char** itr = std::find(begin, end, arg);
+    if (itr != end) {
+        return true;
+    }
+    return false;
+}
+
+int main(int argc, char* argv[]) {
+    PUSH_RANGE("init", 0)
+    MPI_CALL(MPI_Init(&argc, &argv));
+    int rank;
+    MPI_CALL(MPI_Comm_rank(MPI_COMM_WORLD, &rank));
+    int size;
+    MPI_CALL(MPI_Comm_size(MPI_COMM_WORLD, &size));
+
+    const int iter_max = get_argval<int>(argv, argv + argc, "-niter", 1000);
+    const int nccheck = get_argval<int>(argv, argv + argc, "-nccheck", 1);
+    const int nx = get_argval<int>(argv, argv + argc, "-nx", 16384);
+    const int ny = get_argval<int>(argv, argv + argc, "-ny", 16384);
+    const bool csv = get_arg(argv, argv + argc, "-csv");
+
+    int local_rank = -1;
+    {
+        MPI_Comm local_comm;
+        MPI_CALL(MPI_Comm_split_type(MPI_COMM_WORLD, MPI_COMM_TYPE_SHARED, rank, MPI_INFO_NULL,
+                                     &local_comm));
+
+        MPI_CALL(MPI_Comm_rank(local_comm, &local_rank));
+
+        MPI_CALL(MPI_Comm_free(&local_comm));
+    }
+
+    int num_devices = 0;
+    CUDA_RT_CALL(cudaGetDeviceCount(&num_devices));
+    CUDA_RT_CALL(cudaSetDevice(local_rank%num_devices));
+    CUDA_RT_CALL(cudaFree(0));
+
+    real* a_ref_h;
+    CUDA_RT_CALL(cudaMallocHost(&a_ref_h, nx * ny * sizeof(real)));
+    real* a_h;
+    CUDA_RT_CALL(cudaMallocHost(&a_h, nx * ny * sizeof(real)));
+    PUSH_RANGE("single_gpu", 1)
+    double runtime_serial = single_gpu(nx, ny, iter_max, a_ref_h, nccheck, !csv && (0 == rank));
+    POP_RANGE
+
+    // ny - 2 rows are distributed amongst `size` ranks in such a way
+    // that each rank gets either (ny - 2) / size or (ny - 2) / size + 1 rows.
+    // This optimizes load balancing when (ny - 2) % size != 0
+    int chunk_size;
+    int chunk_size_low = (ny - 2) / size;
+    int chunk_size_high = chunk_size_low + 1;
+    // To calculate the number of ranks that need to compute an extra row,
+    // the following formula is derived from this equation:
+    // num_ranks_low * chunk_size_low + (size - num_ranks_low) * (chunk_size_low + 1) = ny - 2
+    int num_ranks_low = size * chunk_size_low + size -
+                        (ny - 2);  // Number of ranks with chunk_size = chunk_size_low
+    if (rank < num_ranks_low)
+        chunk_size = chunk_size_low;
+    else
+        chunk_size = chunk_size_high;
+
+    real* a;
+    CUDA_RT_CALL(cudaMalloc(&a, nx * (chunk_size + 2) * sizeof(real)));
+    real* a_new;
+    CUDA_RT_CALL(cudaMalloc(&a_new, nx * (chunk_size + 2) * sizeof(real)));
+
+    CUDA_RT_CALL(cudaMemset(a, 0, nx * (chunk_size + 2) * sizeof(real)));
+    CUDA_RT_CALL(cudaMemset(a_new, 0, nx * (chunk_size + 2) * sizeof(real)));
+
+    // Calculate local domain boundaries
+    int iy_start_global;  // My start index in the global array
+    if (rank < num_ranks_low) {
+        iy_start_global = rank * chunk_size_low + 1;
+    } else {
+        iy_start_global =
+            num_ranks_low * chunk_size_low + (rank - num_ranks_low) * chunk_size_high + 1;
+    }
+    int iy_end_global = iy_start_global + chunk_size - 1;  // My last index in the global array
+
+    int iy_start = 1;
+    int iy_end = iy_start + chunk_size;
+
+    // Set diriclet boundary conditions on left and right boarder
+    launch_initialize_boundaries(a, a_new, PI, iy_start_global - 1, nx, (chunk_size + 2), ny);
+    CUDA_RT_CALL(cudaDeviceSynchronize());
+
+    // TODO:
+    // * Query the priority range between least/greatest priority
+    // * Create top and bottom CUDA streams, variables, and corresponding CUDA events
+    // cudaStream_t compute_stream;
+    // cudaEvent_t compute_done;
+    // CUDA_RT_CALL(cudaEventCreateWithFlags(&compute_done, cudaEventDisableTiming));
+    // cudaEvent_t reset_l2norm_done;
+    // CUDA_RT_CALL(cudaEventCreateWithFlags(&reset_l2norm_done, cudaEventDisableTiming));
+
+    // *** BEGIN OF MYWORK ***
+    // Query the stream priority range supported by this GPU.
+    //
+    // CUDA uses smaller numerical values for higher priority.
+    // For example, leastPriority may be 0 and greatestPriority
+    // may be -1, but the actual range is device-dependent.
+    int leastPriority = 0;
+    int greatestPriority = 0;
+    
+    CUDA_RT_CALL(
+        cudaDeviceGetStreamPriorityRange(
+            &leastPriority, &greatestPriority
+        )
+    );
+    // Separate the computation into three independent regions:
+    //
+    // compute_stream:
+    //     Computes the bulk/interior region.
+    //
+    // push_top_stream:
+    //     Computes the top boundary row that will be sent
+    //     to the neighboring MPI rank above.
+    //
+    // push_bottom_stream:
+    //     Computes the bottom boundary row that will be sent
+    //     to the neighboring MPI rank below.
+    
+    cudaStream_t compute_stream;
+    cudaStream_t push_top_stream;
+    cudaStream_t push_bottom_stream;
+
+    // Completion events for the three computation regions.
+    // These events allow the host or another CUDA stream
+    // to wait for a specific operation without synchronizing
+    // the entire GPU.
+    
+    cudaEvent_t compute_done;
+    cudaEvent_t push_top_done;
+    cudaEvent_t push_bottom_done;
+    
+    // Signals that the shared L2-norm accumulator has been
+    // reset to zero before any Jacobi kernel accumulates
+    // its contribution for the current iteration.
+    cudaEvent_t reset_l2norm_done;
+    
+    // Disable timing because these events are used for
+    // dependency management, not performance measurement.
+    
+    CUDA_RT_CALL(cudaEventCreateWithFlags(
+        &compute_done, cudaEventDisableTiming));
+    
+    CUDA_RT_CALL(cudaEventCreateWithFlags(
+        &push_top_done, cudaEventDisableTiming));
+    
+    CUDA_RT_CALL(cudaEventCreateWithFlags(
+        &push_bottom_done, cudaEventDisableTiming));
+    
+    CUDA_RT_CALL(cudaEventCreateWithFlags(
+        &reset_l2norm_done, cudaEventDisableTiming));
+
+    // *** END OF MY WORK ***
+
+    // TODO:
+    // * Create CUDA streams with "Greatest" priority for top and bottom streams
+
+    // *** BEGIN OF MY WORK ***
+    // The interior region contains most of the computation,
+    // but its output is not immediately required by other ranks.
+    //
+    // Assign the lowest supported scheduling priority to it.
+    CUDA_RT_CALL(cudaStreamCreateWithPriority(
+        &compute_stream,
+        cudaStreamDefault,
+        leastPriority
+    ));
+    
+    // Boundary rows lie on the critical communication path.
+    //
+    // Computing the top row early allows the host to initiate
+    // MPI communication with the neighboring rank sooner.
+    CUDA_RT_CALL(cudaStreamCreateWithPriority(
+        &push_top_stream,
+        cudaStreamDefault,
+        greatestPriority
+    ));
+    
+    // The bottom boundary has the same urgency as the top.
+    // A separate stream allows independent completion tracking
+    // and communication in the opposite direction.
+    CUDA_RT_CALL(cudaStreamCreateWithPriority(
+        &push_bottom_stream,
+        cudaStreamDefault,
+        greatestPriority
+    ));
+    // *** END OF MY WORK ***
+    
+    // The low-priority compute_stream was already created above.
+    // Do not create it again: overwriting its handle would leak the first stream.
+
+    real* l2_norm_d;
+    CUDA_RT_CALL(cudaMalloc(&l2_norm_d, sizeof(real)));
+    real* l2_norm_h;
+    CUDA_RT_CALL(cudaMallocHost(&l2_norm_h, sizeof(real)));
+
+    PUSH_RANGE("MPI_Warmup", 5)
+    for (int i = 0; i < 10; ++i) {
+        const int top = rank > 0 ? rank - 1 : (size - 1);
+        const int bottom = (rank + 1) % size;
+        MPI_CALL(MPI_Sendrecv(a_new + iy_start * nx, nx, MPI_REAL_TYPE, top, 0,
+                              a_new + (iy_end * nx), nx, MPI_REAL_TYPE, bottom, 0, MPI_COMM_WORLD,
+                              MPI_STATUS_IGNORE));
+        MPI_CALL(MPI_Sendrecv(a_new + (iy_end - 1) * nx, nx, MPI_REAL_TYPE, bottom, 0, a_new, nx,
+                              MPI_REAL_TYPE, top, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE));
+        std::swap(a_new, a);
+    }
+    POP_RANGE
+
+    CUDA_RT_CALL(cudaDeviceSynchronize());
+    POP_RANGE
+
+    if (!csv && 0 == rank) {
+        printf(
+            "Jacobi relaxation: %d iterations on %d x %d mesh with norm check "
+            "every %d iterations\n",
+            iter_max, ny, nx, nccheck);
+    }
+
+    int iter = 0;
+    bool calculate_norm;
+    real l2_norm = 1.0;
+
+    MPI_CALL(MPI_Barrier(MPI_COMM_WORLD));
+    double start = MPI_Wtime();
+    PUSH_RANGE("Jacobi solve", 0)
+    char iter_str[64];
+    while (l2_norm > tol && iter < iter_max) {
+        snprintf(iter_str, 64, "it_%03d", iter);
+        PUSH_RANGE(iter_str, 2)
+        PUSH_RANGE("kernel_and_memcpy", 3)
+        CUDA_RT_CALL(cudaMemsetAsync(l2_norm_d, 0, sizeof(real), compute_stream));
+        CUDA_RT_CALL(cudaEventRecord(reset_l2norm_done, compute_stream));
+
+        calculate_norm = (iter % nccheck) == 0 || (!csv && (iter % 100) == 0);
+
+        // TODO:
+        // * Launch two additional Jacobi kernels for the top and bottom (halo) regions using
+        //   the top and bottom streams after modifying and launching the original Jacobi kernel on
+        //   ONLY the center (bulk) region.
+        // * Remember to wait on the reset_l2norm_done CUDA event using the cudaStreamWaitEvent() call, before
+        //   before launching the top and bottom Jacobi kernels.
+        // * Remember to record when the top and bottom regions are done using the cudaEventRecord() call.
+        //launch_jacobi_kernel(a_new, a, l2_norm_d, iy_start, iy_end, nx,
+        //                     calculate_norm, compute_stream);
+        //CUDA_RT_CALL(cudaEventRecord(compute_done, compute_stream));
+
+        // *** BEGIN OF MY WORK ***
+
+        
+        // ============================================================
+        // STEP 2: Split the local domain into three independent regions
+        // ============================================================
+
+        // 1. Compute the interior (bulk) region.
+        //
+        // The interior only depends on values in the current local
+        // domain. Its output does not need to be sent to neighboring
+        // MPI ranks during the halo exchange.
+        //
+        // Launch it first on the low-priority compute stream so that
+        // the GPU can begin processing the bulk workload immediately.
+        //
+        // Index range: [iy_start + 1, iy_end - 1)
+        launch_jacobi_kernel(
+            a_new, a, l2_norm_d,
+            iy_start + 1, iy_end - 1, nx,
+            calculate_norm, compute_stream
+        );
+
+        // Record completion of the interior computation.
+        // This event is recorded after the kernel in the same stream,
+        // so it becomes complete only after the kernel finishes.
+        CUDA_RT_CALL(cudaEventRecord(
+            compute_done, compute_stream
+        ));
+
+        // 2. Compute the top boundary.
+        //
+        // The top kernel must wait until the shared L2-norm accumulator
+        // has been reset. Stream priority does NOT enforce correctness
+        // or data dependencies between different streams.
+        //
+        // cudaStreamWaitEvent() inserts a dependency into the stream
+        // without blocking the host thread.
+        CUDA_RT_CALL(cudaStreamWaitEvent(
+            push_top_stream, reset_l2norm_done, 0
+        ));
+
+        // Update only the first owned row of the local domain.
+        // This row will be sent to the neighboring rank above.
+        //
+        // Index range: [iy_start, iy_start + 1)
+        launch_jacobi_kernel(
+            a_new, a, l2_norm_d,
+            iy_start, iy_start + 1, nx,
+            calculate_norm, push_top_stream
+        );
+
+        // Signal that the top boundary is ready for MPI communication.
+        CUDA_RT_CALL(cudaEventRecord(
+            push_top_done, push_top_stream
+        ));
+
+        // 3. Compute the bottom boundary.
+        //
+        // Like the top boundary, this kernel must wait for the
+        // L2-norm accumulator to be initialized.
+        CUDA_RT_CALL(cudaStreamWaitEvent(
+            push_bottom_stream, reset_l2norm_done, 0
+        ));
+
+        // Update only the last owned row of the local domain.
+        // This row will be sent to the neighboring rank below.
+        //
+        // Index range: [iy_end - 1, iy_end)
+        launch_jacobi_kernel(
+            a_new, a, l2_norm_d,
+            iy_end - 1, iy_end, nx,
+            calculate_norm, push_bottom_stream
+        );
+
+        // Signal that the bottom boundary is ready for communication.
+        CUDA_RT_CALL(cudaEventRecord(
+            push_bottom_done, push_bottom_stream
+        ));
+        // *** END OF MY WORK ***
+
+        if (calculate_norm) {
+            // TODO: Wait on both the top and bottom cuda events
+            // CUDA_RT_CALL(cudaMemcpyAsync(l2_norm_h, l2_norm_d, sizeof(real), cudaMemcpyDeviceToHost,
+            //                              compute_stream));
+            
+            // *** BEGIN OF MY WORK ***
+            // The L2-norm accumulator contains contributions from
+            // all three Jacobi kernels.
+            //
+            // The interior kernel has already been enqueued in
+            // compute_stream, so stream ordering guarantees that
+            // it completes before the following memory copy.
+            //
+            // However, the top and bottom kernels execute in
+            // different streams. Explicit event dependencies
+            // are required to ensure that their contributions
+            // are also complete.
+
+            CUDA_RT_CALL(cudaStreamWaitEvent(
+                compute_stream, push_top_done, 0
+            ));
+
+            CUDA_RT_CALL(cudaStreamWaitEvent(
+                compute_stream, push_bottom_done, 0
+            ));
+
+            // All three regions have now contributed to l2_norm_d.
+            //
+            // Copy the local squared L2-norm contribution from
+            // device memory to pinned host memory.
+            //
+            // This copy is asynchronous with respect to the host.
+            // The host must synchronize compute_stream before
+            // accessing l2_norm_h or passing it to MPI_Allreduce.
+            CUDA_RT_CALL(cudaMemcpyAsync(
+                l2_norm_h,
+                l2_norm_d,
+                sizeof(real),
+                cudaMemcpyDeviceToHost,
+                compute_stream
+            ));
+            // *** END OF MY WORK ***
+            
+        }
+
+        const int top = rank > 0 ? rank - 1 : (size - 1);
+        const int bottom = (rank + 1) % size;
+
+        // Apply periodic boundary conditions
+        // TODO: Modify the synchronization on the compute stream to be on the top stream
+        // CUDA_RT_CALL(cudaEventSynchronize(compute_done));
+        
+        // *** BEGIN OF MY WORK ***       
+        // Apply periodic boundary conditions.
+        //
+        // Wait only for the top boundary kernel to finish.
+        //
+        // The MPI send buffer contains the first owned row
+        // of a_new, which is produced by push_top_stream.
+        //
+        // Synchronizing compute_done would unnecessarily wait
+        // for the bulk computation and would not guarantee
+        // that the top boundary is ready.
+        //
+        // By waiting on push_top_done instead, the host can
+        // initiate MPI communication while the interior kernel
+        // continues executing on compute_stream.
+        CUDA_RT_CALL(cudaEventSynchronize(push_top_done));
+        // *** END OF MY WORK ***
+
+        // *** BEGIN OF MY WORK ***
+        // Exchange boundary data with neighboring MPI ranks.
+        //
+        // Send our newly computed top boundary row to the
+        // rank above us.
+        //
+        // Receive the top boundary row from the rank below us
+        // into our bottom ghost row.
+        //
+        // Both buffers reside in GPU device memory.
+        // CUDA-aware MPI handles the data transfer directly
+        // from/to these device buffers.
+        // *** END OF MY WORK ***
+        
+        POP_RANGE
+        PUSH_RANGE("MPI", 5)
+        MPI_CALL(MPI_Sendrecv(a_new + iy_start * nx, nx, MPI_REAL_TYPE, top, 0,
+                              a_new + (iy_end * nx), nx, MPI_REAL_TYPE, bottom, 0, MPI_COMM_WORLD,
+                              MPI_STATUS_IGNORE));
+
+        // TODO: Add additional synchronization on the bottom stream
+        // *** BEGIN OF MY WORK ***
+        // Wait until the bottom boundary is ready to be sent.
+        // The interior computation may still be running.
+        CUDA_RT_CALL(cudaEventSynchronize(push_bottom_done));
+        // *** END OF MY WORK ***
+        
+        MPI_CALL(MPI_Sendrecv(a_new + (iy_end - 1) * nx, nx, MPI_REAL_TYPE, bottom, 0, a_new, nx,
+                              MPI_REAL_TYPE, top, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE));
+        POP_RANGE
+
+        PUSH_RANGE("norm", 5)
+        if (calculate_norm) {
+            CUDA_RT_CALL(cudaStreamSynchronize(compute_stream));
+            MPI_CALL(MPI_Allreduce(l2_norm_h, &l2_norm, 1, MPI_REAL_TYPE, MPI_SUM, MPI_COMM_WORLD));
+            l2_norm = std::sqrt(l2_norm);
+
+            if (!csv && 0 == rank && (iter % 100) == 0) {
+                printf("%5d, %0.6f\n", iter, l2_norm);
+            }
+        }
+        POP_RANGE
+
+        std::swap(a_new, a);
+        iter++;
+        POP_RANGE
+    }
+
+    // *** BEGIN OF MY FIX ***
+    // Complete the final interior kernel before stopping the benchmark.
+    // With infrequent norm checks, the host may exit the loop while the
+    // GPU is still working. Both boundary kernels and blocking MPI halo
+    // exchanges have already completed, so only compute_stream remains.
+    // Synchronize once outside the loop to preserve per-iteration overlap.
+    CUDA_RT_CALL(cudaStreamSynchronize(compute_stream));
+    // *** END OF MY FIX ***
+
+    double stop = MPI_Wtime();
+    POP_RANGE
+
+    CUDA_RT_CALL(cudaMemcpy(a_h + iy_start_global * nx, a + nx,
+                            std::min((ny - iy_start_global) * nx, chunk_size * nx) * sizeof(real),
+                            cudaMemcpyDeviceToHost));
+
+
+    // NEGATIVE CONTROL ONLY:
+    // Corrupt one point in the last owned row of the last rank.
+    const char* mode = std::getenv("STRICT_NEGATIVE");
+
+    if (mode && rank == size - 1) {
+        const unsigned long long idx =
+            static_cast<unsigned long long>(iy_end_global)
+            * nx + 1;
+
+        if (std::strcmp(mode, "nan") == 0) {
+            a_h[idx] = std::numeric_limits<real>::quiet_NaN();
+        } else if (std::strcmp(mode, "inf") == 0) {
+            a_h[idx] = std::numeric_limits<real>::infinity();
+        } else if (std::strcmp(mode, "finite") == 0) {
+            a_h[idx] = a_ref_h[idx] + real(1.0);
+        }
+
+        printf(
+            "NEGATIVE_CONTROL: rank=%d row=%d col=1 mode=%s\n",
+            rank, iy_end_global, mode);
+    }
+
+    // Strict numerical validation of every owned interior point.
+    int result_correct = 1;
+    unsigned long long checked = 0;
+    unsigned long long nonfinite = 0;
+    unsigned long long mismatches = 0;
+    double max_abs_error = 0.0;
+
+    // iy_end_global is inclusive.
+    for (int iy = iy_start_global; iy <= iy_end_global; ++iy) {
+        for (int ix = 1; ix < nx - 1; ++ix) {
+            const unsigned long long idx =
+                static_cast<unsigned long long>(iy) * nx + ix;
+
+            const real ref = a_ref_h[idx];
+            const real got = a_h[idx];
+
+            ++checked;
+
+            const bool finite =
+                std::isfinite(ref) && std::isfinite(got);
+
+            if (!finite) {
+                ++nonfinite;
+
+                if (result_correct) {
+                    fprintf(stderr,
+                        "ERROR rank %d: non-finite value "
+                        "at (%d,%d): got=%g ref=%g\n",
+                        rank, iy, ix,
+                        static_cast<double>(got),
+                        static_cast<double>(ref));
+                }
+
+                result_correct = 0;
+                continue;
+            }
+
+            const double err = std::fabs(
+                static_cast<double>(got) -
+                static_cast<double>(ref));
+
+            max_abs_error = std::max(max_abs_error, err);
+
+            if (err > static_cast<double>(tol)) {
+                ++mismatches;
+
+                if (result_correct) {
+                    fprintf(stderr,
+                        "ERROR rank %d: mismatch at (%d,%d): "
+                        "got=%.12g ref=%.12g error=%.12g\n",
+                        rank, iy, ix,
+                        static_cast<double>(got),
+                        static_cast<double>(ref), err);
+                }
+
+                result_correct = 0;
+            }
+        }
+    }
+
+    unsigned long long local_counts[3] = {
+        checked, nonfinite, mismatches
+    };
+
+    unsigned long long global_counts[3] = {0, 0, 0};
+
+    MPI_CALL(MPI_Allreduce(
+        local_counts, global_counts, 3,
+        MPI_UNSIGNED_LONG_LONG, MPI_SUM, MPI_COMM_WORLD));
+
+    double global_max_error = 0.0;
+
+    MPI_CALL(MPI_Allreduce(
+        &max_abs_error, &global_max_error, 1,
+        MPI_DOUBLE, MPI_MAX, MPI_COMM_WORLD));
+
+    const unsigned long long expected =
+        static_cast<unsigned long long>(ny - 2) * (nx - 2);
+
+    if (global_counts[0] != expected ||
+        global_counts[1] != 0 ||
+        global_counts[2] != 0) {
+        result_correct = 0;
+    }
+
+    int global_result_correct = 1;
+
+    MPI_CALL(MPI_Allreduce(
+        &result_correct, &global_result_correct, 1,
+        MPI_INT, MPI_MIN, MPI_COMM_WORLD));
+
+    result_correct = global_result_correct;
+
+    if (rank == 0) {
+        printf(
+            "STRICT_VALIDATION: %s "
+            "checked=%llu expected=%llu "
+            "nonfinite=%llu mismatches=%llu "
+            "max_abs_error=%.12g tol=%.12g\n",
+            result_correct ? "PASS" : "FAIL",
+            global_counts[0], expected,
+            global_counts[1], global_counts[2],
+            global_max_error,
+            static_cast<double>(tol));
+    }
+
+
+    if (rank == 0 && result_correct) {
+        if (csv) {
+            printf("mpi_overlap, %d, %d, %d, %d, %d, 1, %f, %f\n", nx, ny, iter_max, nccheck, size,
+                   (stop - start), runtime_serial);
+        } else {
+            printf("Num GPUs: %d.\n", size);
+            printf(
+                "%dx%d: 1 GPU: %8.4f s, %d GPUs: %8.4f s, speedup: %8.2f, "
+                "efficiency: %8.2f \n",
+                ny, nx, runtime_serial, size, (stop - start), runtime_serial / (stop - start),
+                runtime_serial / (size * (stop - start)) * 100);
+        }
+    }
+
+    
+    // TODO: Destroy the additional top and bottom streams,
+    // as well as their corresponding events.
+
+    // *** BEGIN OF MY WORK ***
+
+    // Release the completion events for the boundary kernels.
+    //
+    // These events were used to:
+    // 1. Notify the host that boundary data was ready for MPI.
+    // 2. Ensure all boundary contributions to the L2 norm
+    //    were complete before copying it back to the host.
+    //
+    // All iterations and halo exchanges have completed.
+
+    CUDA_RT_CALL(cudaEventDestroy(push_bottom_done));
+    CUDA_RT_CALL(cudaEventDestroy(push_top_done));
+
+    // Destroy the two high-priority CUDA streams.
+    //
+    // These streams allowed boundary computation to proceed
+    // independently of the low-priority interior computation,
+    // enabling earlier initiation of MPI communication.
+
+    CUDA_RT_CALL(cudaStreamDestroy(push_bottom_stream));
+    CUDA_RT_CALL(cudaStreamDestroy(push_top_stream));
+
+    // *** END OF MY WORK ***
+
+    // Release the original synchronization resources.
+    //
+    // Each CUDA resource must be destroyed exactly once.
+    CUDA_RT_CALL(cudaEventDestroy(reset_l2norm_done));
+    CUDA_RT_CALL(cudaEventDestroy(compute_done));
+    CUDA_RT_CALL(cudaStreamDestroy(compute_stream));
+
+    // Release the L2-norm buffers:
+    // pinned host memory and GPU device memory, respectively.
+    CUDA_RT_CALL(cudaFreeHost(l2_norm_h));
+    CUDA_RT_CALL(cudaFree(l2_norm_d));
+
+    // Release both device buffers used for Jacobi double buffering.
+    CUDA_RT_CALL(cudaFree(a_new));
+    CUDA_RT_CALL(cudaFree(a));
+
+    // Release the host buffers used for result validation.
+    CUDA_RT_CALL(cudaFreeHost(a_h));
+    CUDA_RT_CALL(cudaFreeHost(a_ref_h));
+
+    // Shut down the MPI runtime after all communication
+    // and resource cleanup have completed.
+    MPI_CALL(MPI_Finalize());
+
+    // Return success only if the distributed result agrees
+    // with the single-GPU reference solution.
+    return (result_correct == 1) ? 0 : 1;
+}
+
+double single_gpu(const int nx, const int ny, const int iter_max, real* const a_ref_h,
+                  const int nccheck, const bool print) {
+    real* a;
+    real* a_new;
+
+    cudaStream_t compute_stream;
+    cudaStream_t push_top_stream;
+    cudaStream_t push_bottom_stream;
+    cudaEvent_t compute_done;
+    cudaEvent_t push_top_done;
+    cudaEvent_t push_bottom_done;
+
+    real* l2_norm_d;
+    real* l2_norm_h;
+
+    int iy_start = 1;
+    int iy_end = (ny - 1);
+
+    CUDA_RT_CALL(cudaMalloc(&a, nx * ny * sizeof(real)));
+    CUDA_RT_CALL(cudaMalloc(&a_new, nx * ny * sizeof(real)));
+
+    CUDA_RT_CALL(cudaMemset(a, 0, nx * ny * sizeof(real)));
+    CUDA_RT_CALL(cudaMemset(a_new, 0, nx * ny * sizeof(real)));
+
+    // Set diriclet boundary conditions on left and right boarder
+    launch_initialize_boundaries(a, a_new, PI, 0, nx, ny, ny);
+    CUDA_RT_CALL(cudaDeviceSynchronize());
+
+    CUDA_RT_CALL(cudaStreamCreate(&compute_stream));
+    CUDA_RT_CALL(cudaStreamCreate(&push_top_stream));
+    CUDA_RT_CALL(cudaStreamCreate(&push_bottom_stream));
+    CUDA_RT_CALL(cudaEventCreateWithFlags(&compute_done, cudaEventDisableTiming));
+    CUDA_RT_CALL(cudaEventCreateWithFlags(&push_top_done, cudaEventDisableTiming));
+    CUDA_RT_CALL(cudaEventCreateWithFlags(&push_bottom_done, cudaEventDisableTiming));
+
+    CUDA_RT_CALL(cudaMalloc(&l2_norm_d, sizeof(real)));
+    CUDA_RT_CALL(cudaMallocHost(&l2_norm_h, sizeof(real)));
+
+    CUDA_RT_CALL(cudaDeviceSynchronize());
+
+    if (print)
+        printf(
+            "Single GPU jacobi relaxation: %d iterations on %d x %d mesh with "
+            "norm "
+            "check every %d iterations\n",
+            iter_max, ny, nx, nccheck);
+
+    int iter = 0;
+    bool calculate_norm;
+    real l2_norm = 1.0;
+
+    double start = MPI_Wtime();
+    PUSH_RANGE("Jacobi solve single", 0)
+    while (l2_norm > tol && iter < iter_max) {
+        CUDA_RT_CALL(cudaMemsetAsync(l2_norm_d, 0, sizeof(real), compute_stream));
+
+        CUDA_RT_CALL(cudaStreamWaitEvent(compute_stream, push_top_done, 0));
+        CUDA_RT_CALL(cudaStreamWaitEvent(compute_stream, push_bottom_done, 0));
+
+        calculate_norm = (iter % nccheck) == 0 || (iter % 100) == 0;
+        launch_jacobi_kernel(a_new, a, l2_norm_d, iy_start, iy_end, nx, calculate_norm,
+                             compute_stream);
+        CUDA_RT_CALL(cudaEventRecord(compute_done, compute_stream));
+
+        if (calculate_norm) {
+            CUDA_RT_CALL(cudaMemcpyAsync(l2_norm_h, l2_norm_d, sizeof(real), cudaMemcpyDeviceToHost,
+                                         compute_stream));
+        }
+
+        // Apply periodic boundary conditions
+
+        CUDA_RT_CALL(cudaStreamWaitEvent(push_top_stream, compute_done, 0));
+        CUDA_RT_CALL(cudaMemcpyAsync(a_new, a_new + (iy_end - 1) * nx, nx * sizeof(real),
+                                     cudaMemcpyDeviceToDevice, push_top_stream));
+        CUDA_RT_CALL(cudaEventRecord(push_top_done, push_top_stream));
+
+        CUDA_RT_CALL(cudaStreamWaitEvent(push_bottom_stream, compute_done, 0));
+        CUDA_RT_CALL(cudaMemcpyAsync(a_new + iy_end * nx, a_new + iy_start * nx, nx * sizeof(real),
+                                     cudaMemcpyDeviceToDevice, compute_stream));
+        CUDA_RT_CALL(cudaEventRecord(push_bottom_done, push_bottom_stream));
+        if (calculate_norm) {
+            CUDA_RT_CALL(cudaStreamSynchronize(compute_stream));
+            l2_norm = *l2_norm_h;
+            l2_norm = std::sqrt(l2_norm);
+            if (print && (iter % 100) == 0) printf("%5d, %0.6f\n", iter, l2_norm);
+        }
+
+        std::swap(a_new, a);
+        iter++;
+    }
+
+    // *** BEGIN OF MY FIX ***
+    // Complete all GPU work before stopping the single-GPU benchmark.
+    // The final iteration may skip the norm check, leaving asynchronous
+    // kernels or periodic boundary copies in flight. A device-wide sync
+    // covers all three streams; a separate compute-stream sync is redundant.
+    // Synchronize only once, outside the loop, and exclude the subsequent
+    // device-to-host reference-result copy from the timed solver region.
+    CUDA_RT_CALL(cudaDeviceSynchronize());
+    // *** END OF MY FIX ***
+
+    double stop = MPI_Wtime();
+    POP_RANGE
+
+    CUDA_RT_CALL(cudaMemcpy(a_ref_h, a, nx * ny * sizeof(real), cudaMemcpyDeviceToHost));
+
+    CUDA_RT_CALL(cudaEventDestroy(push_bottom_done));
+    CUDA_RT_CALL(cudaEventDestroy(push_top_done));
+    CUDA_RT_CALL(cudaEventDestroy(compute_done));
+    CUDA_RT_CALL(cudaStreamDestroy(push_bottom_stream));
+    CUDA_RT_CALL(cudaStreamDestroy(push_top_stream));
+    CUDA_RT_CALL(cudaStreamDestroy(compute_stream));
+
+    CUDA_RT_CALL(cudaFreeHost(l2_norm_h));
+    CUDA_RT_CALL(cudaFree(l2_norm_d));
+
+    CUDA_RT_CALL(cudaFree(a_new));
+    CUDA_RT_CALL(cudaFree(a));
+    return (stop - start);
+}

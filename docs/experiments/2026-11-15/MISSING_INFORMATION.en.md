@@ -6,9 +6,13 @@ Record date: 2026-11-15 (America/Chicago). For reviewing and reproducing the exp
 
 This checklist is for readers adding evidence later. The original traces are already in the repository. Most tasks below require exporting screenshots from them or recovering missing output, rather than finding files already preserved. Keep the rank, time scale, stream identifiers, kernel names, and NVTX ranges in each screenshot. State the original filename and iteration window in its caption.
 
+## Status update — 2026-11-16
+
+The Chapter04 corrected-validation rerun logs are now supplied for the tested cases. Single-row subdomains remain untested. The matched-reference geometry subset also has new measurements, but same-implementation scaling remains open. No new NCCL Host output, old anomaly log/placement, initial NCCL Device failure output, exact historical NCCL runtime version or trace screenshot was recovered. See [today's item-by-item review](../../../research/2026-11-16/FINDINGS.en.md).
+
 ## Recover information that affects the conclusions first
 
-- **Chapter 04 numerical checks:** Add rerun logs after extending checks to the last valid row and non-finite values. Preserve the original data. This determines the scope of any claim that numerical validation passed.
+- **Chapter 04 numerical checks — supplied for tested cases:** [12 positive and 3 negative logs](../../../research/2026-11-16/chapter04-mpi-validation/validation_results.csv) establish last-row/non-finite checks in the new snapshots. Single-row subdomains remain Q4; old profile command/executable mappings are still missing.
 - **Chapter 07 NCCL Host output:** Preserve the full command, exit code, grid dimensions, iteration count, `nccheck`, numerical checks, and final time from the formal run. Only source and traces for 4 ranks are currently available; there is no verifiable formal benchmark text.
 - **Early NVSHMEM anomaly comparison:** Recover the original log and placement for job 2925255, `nccheck=1`, 0.4770 s. The 2.4381 s log from job 2925303 is already in the repository. The controlled recheck within one job is also preserved; it did not reproduce the old anomaly.
 - **Initial NCCL Device failure:** Recover the original terminal output or screenshot showing the mismatch on the first valid row. Corrected successful logs and source are preserved. Only the contemporary description of the initial failure is available.
@@ -25,7 +29,7 @@ This checklist is for readers adding evidence later. The original traces are alr
 
 ## Questions that require new measurements
 
-Efficiency with matched single-GPU kernels, statistical stability of Graph priority, and triggers for the Host anomaly require new experiments. Screenshots cannot replace these data. Methods and completion criteria are listed in [open research questions](OPEN_QUESTIONS.en.md).
+Reference-geometry measurements now answer that subquestion, but same-implementation 1 PE/4 PE scaling, single-row validation, Graph-priority stability and Host-anomaly triggers still need experiments. Screenshots cannot replace these data. Methods and remaining completion criteria are in [open research questions](OPEN_QUESTIONS.en.md).
 
 ## Evidence coverage and tool limits
 

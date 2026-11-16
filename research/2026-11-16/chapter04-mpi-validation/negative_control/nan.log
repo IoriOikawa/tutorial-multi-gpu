@@ -1,0 +1,12 @@
+cpu_bind=SOCKETS - jpbo-101-04, task  0  0 [980344]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-101-04, task  1  1 [980346]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-04, task  3  3 [980347]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-04, task  2  2 [980345]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+ERROR rank 3: non-finite value at (257,1): got=nan ref=-0.00912999
+Single GPU jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+Jacobi relaxation: 3 iterations on 259 x 261 mesh with norm check every 3 iterations
+    0, 4.015594
+STRICT_VALIDATION: FAIL checked=66563 expected=66563 nonfinite=1 mismatches=0 max_abs_error=0 tol=9.99999993923e-09
+NEGATIVE_CONTROL: rank=3 row=257 col=1 mode=nan
+srun: error: jpbo-101-04: tasks 0-3: Exited with exit code 1

@@ -1,0 +1,4 @@
+log_path,reason
+logs/run_job2939543_20261116T145816Z/bench_A_nc10_r3.log,Runtime error in log
+logs/run_job2939921_20261116T151759Z/bench_A_nc10_r4.log,Missing completion marker
+logs/run_job2940455_20261116T154647322249Z/bench_B_nc10_r7.log,Missing completion marker

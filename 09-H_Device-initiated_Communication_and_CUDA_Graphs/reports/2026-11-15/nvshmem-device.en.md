@@ -6,6 +6,10 @@ Record date: 2026-11-15 (America/Chicago). For reviewing and reproducing the exp
 
 [Return to the day's experiment index](../../../docs/experiments/2026-11-15/README.en.md) · [Read the missing information and screenshot checklist](../../../docs/experiments/2026-11-15/MISSING_INFORMATION.en.md)
 
+## Follow-up — 2026-11-16
+
+This page describes the November 15 evidence. The [November 16 research log](../../../research/2026-11-16/README.en.md) and [findings/status comparison](../../../research/2026-11-16/FINDINGS.en.md) add corrected validation and matched-reference measurements. Q1 and Q4 remain partial: single-row subdomains and same-implementation 1 PE/4 PE scaling are not yet tested. Historical source snapshots, timings and traces below remain unchanged.
+
 ## Findings and limits
 
 Successful run records are preserved for scalar 32×32, scalar 256×1, and cooperative block 256×1 implementations. Each has two small-grid smoke tests, two formal benchmarks, and one short trace, totaling 15 run records. All six smoke tests are marked PASS.

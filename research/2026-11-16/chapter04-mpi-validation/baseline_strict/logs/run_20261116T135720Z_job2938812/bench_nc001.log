@@ -1,0 +1,34 @@
+=== bench_nc001 ===
+Implementation: mpi_baseline_strict
+Job: 2938812
+Node: jpbo-101-05
+Arguments: -nx 16384 -ny 16384 -niter 1000 -nccheck 1
+cpu_bind=SOCKETS - jpbo-101-05, task  0  0 [765300]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-101-05, task  1  1 [765302]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-05, task  2  2 [765301]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-05, task  3  3 [765303]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+Single GPU jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 1 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535684
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235509
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+Jacobi relaxation: 1000 iterations on 16384 x 16384 mesh with norm check every 1 iterations
+    0, 31.999022
+  100, 0.897983
+  200, 0.535685
+  300, 0.395651
+  400, 0.319039
+  500, 0.269961
+  600, 0.235510
+  700, 0.209829
+  800, 0.189854
+  900, 0.173818
+STRICT_VALIDATION: PASS checked=268369924 expected=268369924 nonfinite=0 mismatches=0 max_abs_error=0 tol=9.99999993923e-09
+Num GPUs: 4.
+16384x16384: 1 GPU:   1.4708 s, 4 GPUs:   0.4832 s, speedup:     3.04, efficiency:    76.10 

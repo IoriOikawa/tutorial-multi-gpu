@@ -1,0 +1,6 @@
+Job: 2940455
+Node: jpbo-101-07
+cpu_bind=SOCKETS - jpbo-101-07, task  3  3 [3308217]: mask 0xffffffffffffffffff000000000000000000000000000000000000000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-07, task  0  0 [3308214]: mask 0xffffffffffffffffff set
+cpu_bind=SOCKETS - jpbo-101-07, task  1  1 [3308216]: mask 0xffffffffffffffffff000000000000000000 set
+cpu_bind=SOCKETS - jpbo-101-07, task  2  2 [3308215]: mask 0xffffffffffffffffff000000000000000000000000000000000000 set

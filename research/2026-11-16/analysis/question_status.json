@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-16",
+  "comparison_base": "9cccb76505c44c0ec316cef6b3e25e43e494fdac",
+  "archive_commit": "e1985a0c42546d8f0afcc3766c9ae8df30d5530f",
+  "quartile_method": "statistics.quantiles(n=4, method='inclusive'); descriptive pooled primary samples, not confidence intervals",
+  "questions": [
+    {
+      "id": "Q1",
+      "topic": "matched reference and strong scaling",
+      "status": "partial",
+      "resolved": [
+        "reference geometry comparison",
+        "64 primary plus 9 extra with strict validation"
+      ],
+      "remaining": [
+        "same-implementation NVSHMEM 1PE/4PE",
+        "full baseline-equivalence controls and uncertainty"
+      ]
+    },
+    {
+      "id": "Q2",
+      "topic": "CUDA Graph priority stability",
+      "status": "open",
+      "remaining": [
+        "controlled repeated ON/OFF measurements"
+      ]
+    },
+    {
+      "id": "Q3",
+      "topic": "early NVSHMEM Host anomaly",
+      "status": "open",
+      "remaining": [
+        "trigger and controlled reproduction"
+      ]
+    },
+    {
+      "id": "Q4",
+      "topic": "Chapter04 numerical checks",
+      "status": "partial",
+      "resolved": [
+        "last owned row included",
+        "nonfinite and finite mismatch rejected",
+        "12 positive and 3 negative logs"
+      ],
+      "remaining": [
+        "single-row subdomain tests",
+        "same-allocation repeated performance comparison"
+      ]
+    }
+  ],
+  "missing_information": [
+    {
+      "id": "M1",
+      "status": "resolved_for_logged_cases",
+      "topic": "Chapter04 corrected validation rerun logs"
+    },
+    {
+      "id": "M2",
+      "status": "open",
+      "topic": "NCCL Host formal output"
+    },
+    {
+      "id": "M3",
+      "status": "open",
+      "topic": "old Host log and placement"
+    },
+    {
+      "id": "M4",
+      "status": "open",
+      "topic": "initial NCCL Device failure output"
+    },
+    {
+      "id": "M5",
+      "status": "open",
+      "topic": "exact experimental NCCL runtime version"
+    }
+  ],
+  "screenshots": [
+    {
+      "id": "T1",
+      "status": "open",
+      "topic": "MPI overlap"
+    },
+    {
+      "id": "T2",
+      "status": "open",
+      "topic": "NCCL Host"
+    },
+    {
+      "id": "T3",
+      "status": "open",
+      "topic": "NVSHMEM Host"
+    },
+    {
+      "id": "T4",
+      "status": "open",
+      "topic": "NCCL Device LSA"
+    },
+    {
+      "id": "T5",
+      "status": "open",
+      "topic": "CUDA Graph ON/OFF"
+    },
+    {
+      "id": "T6",
+      "status": "open",
+      "topic": "NVSHMEM Device configurations"
+    }
+  ],
+  "historical_gaps": [
+    "unreturned older attachments",
+    "earlier Chapter04 profile launch arguments and executable mappings"
+  ],
+  "gpu_experiments_rerun_during_integration": false
+}
