@@ -1,5 +1,7 @@
 # 第 07 章：使用 NCCL Host API 交换边界
 
+[English](nccl-host.en.md) | [简体中文](nccl-host.md) | [日本語](nccl-host.ja.md)
+
 记录日期：2026-11-15（America/Chicago）。供课后复习与复现实验使用。
 
 [返回当天实验索引](../../../docs/experiments/2026-11-15/README.md) · [查看待补信息与截图清单](../../../docs/experiments/2026-11-15/MISSING_INFORMATION.md)

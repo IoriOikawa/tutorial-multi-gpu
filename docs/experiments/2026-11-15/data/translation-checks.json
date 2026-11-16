@@ -1,0 +1,209 @@
+{
+  "checked_on": "2026-11-16",
+  "timezone": "America/Chicago",
+  "experiment_date": "2026-11-15",
+  "scope": "Six chapter reports and six supporting documents in three languages, plus three root READMEs.",
+  "checks": {
+    "document_sets": 12,
+    "translated_files": 24,
+    "root_readmes": 3,
+    "local_link_targets": 378,
+    "source_line_anchors": 69,
+    "language_switch_targets": 117,
+    "source_evidence_files_hash_checked": 234,
+    "numeric_tables": "identical in all three languages",
+    "decimal_values": "identical in all three languages",
+    "shell_and_checksum_fences": "identical in all three languages",
+    "evidence_and_figure_references": "identical in all three languages"
+  },
+  "review_notes": [
+    "Key baseline limitations, single-observation claims and the unreproduced host slowdown were reviewed for consistent meaning.",
+    "Original source, logs, figures, datasets and Nsight reports were unchanged.",
+    "Historical VERIFICATION documents retain the original 86-link Chinese archive audit count.",
+    "GPU experiments were not rerun during translation."
+  ],
+  "root_documents": [
+    {
+      "path": "README.md",
+      "sha256": "c56663da2db6e22e3993cc679d906ecd10b89616a80f8686e32de038a24fcf0b"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "sha256": "60dc9a64746131f4b265d33e4159d353ac1436ad32f38bcdfb2b099855d9a486"
+    },
+    {
+      "path": "README.ja.md",
+      "sha256": "1b6594366d63f2acbef1283981570a199f6af9f5563cee6c78abcad5fcea6dc1"
+    }
+  ],
+  "document_sets": [
+    {
+      "zh-CN": {
+        "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.md",
+        "sha256": "0bb04423d3dd3520baa5392942c3ea0082af5abab14bc5fcb2a63ff2620fbd69"
+      },
+      "en": {
+        "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.en.md",
+        "sha256": "c17ef4b909f8379920760e9f5aaead1ec2294f08de0ed5c74ecd06d8dd5e34b6"
+      },
+      "ja": {
+        "path": "04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.ja.md",
+        "sha256": "10a3c1656a303d2878e3eb13eecc3ad27cc2909ca183057392a9f072312b7d54"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/nccl-host.md",
+        "sha256": "888e434d16cd17004157e08fca51be64136af566722c95b9d4e8dd2a393aa745"
+      },
+      "en": {
+        "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/nccl-host.en.md",
+        "sha256": "a591ba2c70b2322077753249b04288717ae3a564a231983fac02c190e97ac541"
+      },
+      "ja": {
+        "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/nccl-host.ja.md",
+        "sha256": "10c57f6cd7ab02fef64e6b3a5181230aae51a69ab8eb27433bf8de4407eb0682"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/nvshmem-host.md",
+        "sha256": "ea9717d30b955c80b4c319467f76fb9faf4bf05ef577b26c55e7e7571176ba2d"
+      },
+      "en": {
+        "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/nvshmem-host.en.md",
+        "sha256": "c4e96ef93d986306448394b1450ff3244dcb78c4bd1f488f1080746e5309df46"
+      },
+      "ja": {
+        "path": "07-H_NCCL_NVSHMEM/reports/2026-11-15/nvshmem-host.ja.md",
+        "sha256": "1bd205a21b4f0def9a7118675f9fca9bb25e9e0d521af19bd59bb95ab8f05e4b"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/cuda-graphs.md",
+        "sha256": "ffaaaa7cff50a0c0d5228bd54dc45e55b5426f676b38927ace6535a424dad764"
+      },
+      "en": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/cuda-graphs.en.md",
+        "sha256": "cee2ab1b29db4d14e222e8801bbd78da643de8c498f511f7c5e05d52f636da7a"
+      },
+      "ja": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/cuda-graphs.ja.md",
+        "sha256": "d0fb90e91a8b6702956497c6015521780cce332e80ce9a3e5ca357a723ba5525"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nccl-device.md",
+        "sha256": "6b836b314e3e7c63cba6ad78de19ce2926c71fc88feac498f3a25276b09a12dd"
+      },
+      "en": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nccl-device.en.md",
+        "sha256": "630b49edb76faddad970f028a618ead01e04bbe2198c3bac6ce1e0a9a2e43754"
+      },
+      "ja": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nccl-device.ja.md",
+        "sha256": "e17c8cbd3b8143db5f2467ae7d44ce0504fee1bafc3cf85507b706a25a96d378"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.md",
+        "sha256": "fb128aeee2b757288e670eb70d319c92510b769a3742cb727fb601fa95285f4d"
+      },
+      "en": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.en.md",
+        "sha256": "9f331026cc777439191da44e79e968f315c942e7f8a10d54a3f45835e69db73a"
+      },
+      "ja": {
+        "path": "09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.ja.md",
+        "sha256": "15cae569981f9436bea1ac6e4a9199f55ab7dee651d98a31bc8120e4c27a1d4d"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "docs/experiments/2026-11-15/CONVERSATION_NOTES.md",
+        "sha256": "f67db6dcb9ab184d8344b0dfd8212f2eb17d5187464484401820092a0768a38f"
+      },
+      "en": {
+        "path": "docs/experiments/2026-11-15/CONVERSATION_NOTES.en.md",
+        "sha256": "ba6f1a3fe0131ce1204accfd7c1e10bd08dc139e76c39acae32d40014eae99cb"
+      },
+      "ja": {
+        "path": "docs/experiments/2026-11-15/CONVERSATION_NOTES.ja.md",
+        "sha256": "74c6a276d79af8317a41280c60b639f6da699abeae578b96cbe9ec042737c5e2"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "docs/experiments/2026-11-15/MISSING_INFORMATION.md",
+        "sha256": "f92b62447a84146330ac3b72d765525c8dcc674135ab1a429c7033a3aa8fc67b"
+      },
+      "en": {
+        "path": "docs/experiments/2026-11-15/MISSING_INFORMATION.en.md",
+        "sha256": "ea3ce02213fb2d1adec7e81a1e5b80b262ee055ce376d355ea7c94b16820ec9f"
+      },
+      "ja": {
+        "path": "docs/experiments/2026-11-15/MISSING_INFORMATION.ja.md",
+        "sha256": "e8576eea3a9b0d1c5ecc56300c060986b9584a438c206da6ff21e0742ca37615"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "docs/experiments/2026-11-15/OPEN_QUESTIONS.md",
+        "sha256": "1d0f2977a67c0cc9b2bbf70a21feb59d22b3fbbc3f39c45441be2831180cae17"
+      },
+      "en": {
+        "path": "docs/experiments/2026-11-15/OPEN_QUESTIONS.en.md",
+        "sha256": "d31e2618cc071f6bf575d77199c901be98f9e04d0b5bfbcb5f1f8996a685f205"
+      },
+      "ja": {
+        "path": "docs/experiments/2026-11-15/OPEN_QUESTIONS.ja.md",
+        "sha256": "70d980ee368956e2e00797bc86a0df19100a8756a478969137fa79d31b7befd2"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "docs/experiments/2026-11-15/README.md",
+        "sha256": "ce8dffd3da28ea476efac50ad631891bdcd912ae65a2bd266654f54f867267ff"
+      },
+      "en": {
+        "path": "docs/experiments/2026-11-15/README.en.md",
+        "sha256": "bec556665f160c3588ffc0c4c825e5d2727ad96e23f42d1bfe776dc40f9331cd"
+      },
+      "ja": {
+        "path": "docs/experiments/2026-11-15/README.ja.md",
+        "sha256": "532bb8072a902463b8cf8f7fbd2fde2fc40b1adac8c518219cd1f2ebe024914e"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "docs/experiments/2026-11-15/RELATED_RESOURCES.md",
+        "sha256": "6ee8ce0b78bc9da0c485fed8ca9ccfc944a6491cf17ee20035eff3932ca0e526"
+      },
+      "en": {
+        "path": "docs/experiments/2026-11-15/RELATED_RESOURCES.en.md",
+        "sha256": "c603b7711dd7bd0bddc025928cfebfe1bb63a0c2629f638ede6e4bfc1eedadab"
+      },
+      "ja": {
+        "path": "docs/experiments/2026-11-15/RELATED_RESOURCES.ja.md",
+        "sha256": "a211af58c74b9ee7f3c8da0ff996b939c6316941759f5ff85bf4a227deae5473"
+      }
+    },
+    {
+      "zh-CN": {
+        "path": "docs/experiments/2026-11-15/VERIFICATION.md",
+        "sha256": "d607600f379e033b86215255a562ac5f243e6315d1dfed3fbc71e117d259540e"
+      },
+      "en": {
+        "path": "docs/experiments/2026-11-15/VERIFICATION.en.md",
+        "sha256": "fa2cd012b20dba8a04f5df8a87d14ad349559d1196d14e3dd28c213e91b92449"
+      },
+      "ja": {
+        "path": "docs/experiments/2026-11-15/VERIFICATION.ja.md",
+        "sha256": "f9d1570cf69ab255566d6b096273a26f73daf16c76612401524623612332f3d3"
+      }
+    }
+  ]
+}

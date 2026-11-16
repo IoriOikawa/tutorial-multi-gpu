@@ -1,5 +1,7 @@
 # 后续研究问题
 
+[English](OPEN_QUESTIONS.en.md) | [简体中文](OPEN_QUESTIONS.md) | [日本語](OPEN_QUESTIONS.ja.md)
+
 记录日期：2026-11-15（America/Chicago）。供课后复习与复现实验使用。
 
 本页保存尚未完成的实验问题，避免将方案写成结果。相关旧观测均保留在 [当天实验索引](README.md) 的报告和日志中。

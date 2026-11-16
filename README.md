@@ -1,22 +1,24 @@
 # SC26 Tutorial: Efficient Distributed GPU Programming for Exascale
 
+[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5745504.svg)](https://doi.org/10.5281/zenodo.5745504)
 
 
 Repository with talks and exercises of our Efficient GPU Programming for Exascale tutorial, to be held at [SC26](https://sc26.conference-program.com/presentation/?id=tut120&sess=sess190).
 
-## 当天实验记录（2026-11-15）
+## Experiment records from 15 November 2026
 
-本 fork 保存了当天完成的代码快照、实验日志和中文报告。原课程练习保留在原位置，完成版本及结果位于各章 `reports/2026-11-15/archive/`。报告区分已有观测、失败记录和待验证问题。
+This fork preserves the completed source snapshots, experiment logs, and reports in English, Simplified Chinese, and Japanese. The three-language documentation was prepared on 16 November 2026. The original tutorial exercises remain in place. Completed implementations and evidence are under each chapter's `reports/2026-11-15/archive/`. The reports distinguish observations, failed runs, and questions that still need validation.
 
-- [第 04 章：MPI 重叠与计时修正](04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.md)
-- [第 07 章：NCCL Host API](07-H_NCCL_NVSHMEM/reports/2026-11-15/nccl-host.md)
-- [第 07 章：NVSHMEM Host 与异常复查](07-H_NCCL_NVSHMEM/reports/2026-11-15/nvshmem-host.md)
-- [第 09 章：NCCL Device LSA 写入](09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nccl-device.md)
-- [第 09 章：CUDA Graph 节点优先级](09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/cuda-graphs.md)
-- [第 09 章：NVSHMEM Device 三种配置](09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.md)
+- [Chapter 04: MPI overlap and timing correction](04-H_Overlap_Communication_and_Computation_MPI/reports/2026-11-15/README.en.md)
+- [Chapter 07: NCCL Host API](07-H_NCCL_NVSHMEM/reports/2026-11-15/nccl-host.en.md)
+- [Chapter 07: NVSHMEM Host and slowdown follow-up](07-H_NCCL_NVSHMEM/reports/2026-11-15/nvshmem-host.en.md)
+- [Chapter 09: NCCL Device LSA writes](09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nccl-device.en.md)
+- [Chapter 09: CUDA Graph node priority](09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/cuda-graphs.en.md)
+- [Chapter 09: Three NVSHMEM Device configurations](09-H_Device-initiated_Communication_and_CUDA_Graphs/reports/2026-11-15/nvshmem-device.en.md)
 
-统一入口：[环境、计时口径与原始资料索引](docs/experiments/2026-11-15/README.md)。另见 [待补信息与截图](docs/experiments/2026-11-15/MISSING_INFORMATION.md)、[后续研究问题](docs/experiments/2026-11-15/OPEN_QUESTIONS.md)。56 份 Nsight 报告按原字节保存；当前整理没有在集群重跑实验。
+Start with the [environment, timing conventions, and evidence index](docs/experiments/2026-11-15/README.en.md). See also [missing information and screenshots](docs/experiments/2026-11-15/MISSING_INFORMATION.en.md) and [open research questions](docs/experiments/2026-11-15/OPEN_QUESTIONS.en.md). The 56 Nsight reports retain their original bytes. The GPU experiments were not rerun during documentation work.
 
 ## Coordinates
 

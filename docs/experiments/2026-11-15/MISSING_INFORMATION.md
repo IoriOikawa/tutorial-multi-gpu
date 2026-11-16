@@ -1,5 +1,7 @@
 # 需要补充的信息、实验与截图
 
+[English](MISSING_INFORMATION.en.md) | [简体中文](MISSING_INFORMATION.md) | [日本語](MISSING_INFORMATION.ja.md)
+
 记录日期：2026-11-15（America/Chicago）。供课后复习与复现实验使用。
 
 本清单面向后续补资料的读者。已有原始 trace 已入仓库，下面主要需要从这些文件导出截图，或补回缺失输出；没有要求重新寻找已保存的文件。每张截图请保留 rank、时间标尺、流编号、kernel 名称及 NVTX 范围，并在说明中写原文件名和迭代窗口。

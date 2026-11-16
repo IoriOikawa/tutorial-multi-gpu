@@ -1,5 +1,7 @@
 # 同日整理的 Core-Level 教程资料
 
+[English](RELATED_RESOURCES.en.md) | [简体中文](RELATED_RESOURCES.md) | [日本語](RELATED_RESOURCES.ja.md)
+
 记录日期：2026-11-15（America/Chicago）。帮助读者找到当天另一项资料整理工作。
 
 ## 已完成的离线归档

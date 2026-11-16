@@ -1,5 +1,7 @@
 # 当天对话中的技术事项
 
+[English](CONVERSATION_NOTES.en.md) | [简体中文](CONVERSATION_NOTES.md) | [日本語](CONVERSATION_NOTES.ja.md)
+
 记录日期：2026-11-15（America/Chicago）。供课后复习与复现实验使用。
 
 本页保存与实验有关的协作事项，帮助读者理解已完成工作和后续计划。来源为《分布式 GPU 基础速成》的相关对话和本次提供的实验归档；个人交流内容未纳入。

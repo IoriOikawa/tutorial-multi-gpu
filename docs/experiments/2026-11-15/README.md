@@ -1,12 +1,14 @@
 # 2026-11-15 SC26 多 GPU 实验记录
 
-记录日期：2026-11-15（America/Chicago）。供课后复习与复现实验使用。
+[English](README.en.md) | [简体中文](README.md) | [日本語](README.ja.md)
 
-本记录帮助课后读者查阅当天实现、实验结果及仍需验证的问题。实验对应本仓库的分布式 GPU 教程，课程入口见 [根目录 README](../../../README.md)。
+记录日期：2026-11-15（America/Chicago）。三语版整理日期：2026-11-16。供课后复习与复现实验使用。
+
+本记录帮助课后读者查阅当天实现、实验结果及仍需验证的问题。实验对应本仓库的分布式 GPU 教程，课程入口见 [根目录 README](../../../README.zh-CN.md)。
 
 ## 今日结论
 
-已保存当天的实现快照、6 篇中文报告、22 条可读取的正式或历史 benchmark 结果，以及 56 份 Nsight Systems 报告。原课程 `tasks/` 与 `solutions/` 文件保持原样，完成版本放在各章报告的 `archive/` 中。
+已保存当天的实现快照、6 篇英中日三语报告、22 条可读取的正式或历史 benchmark 结果，以及 56 份 Nsight Systems 报告。原课程 `tasks/` 与 `solutions/` 文件保持原样，完成版本放在各章报告的 `archive/` 中。
 
 - **已保留的实现：** MPI 重叠、NCCL Host、NVSHMEM Host、NCCL Device 的 LSA 写入、CUDA Graph 和 NVSHMEM Device 配置。
 - **已核对的后续结果：** NVSHMEM Host 受控复查未复现早期慢速；CUDA Graph 优先级只有单次对照；超过 100% 的打印效率存在参考 kernel 配置差异。
@@ -58,3 +60,5 @@
 ```sh
 python3 docs/experiments/2026-11-15/data/plot_results.py
 ```
+
+三语版本的文件范围与一致性检查见 [翻译核验记录](data/translation-checks.json)。
