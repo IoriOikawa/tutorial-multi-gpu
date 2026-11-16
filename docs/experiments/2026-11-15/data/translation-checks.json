@@ -7,7 +7,7 @@
     "document_sets": 12,
     "translated_files": 24,
     "root_readmes": 3,
-    "local_link_targets": 378,
+    "local_link_targets": 381,
     "source_line_anchors": 69,
     "language_switch_targets": 117,
     "source_evidence_files_hash_checked": 234,
@@ -25,15 +25,15 @@
   "root_documents": [
     {
       "path": "README.md",
-      "sha256": "c56663da2db6e22e3993cc679d906ecd10b89616a80f8686e32de038a24fcf0b"
+      "sha256": "58d8f8db6a6a585898411cc0ff6f27358354a8beb172bc632bf6806d312286d8"
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "60dc9a64746131f4b265d33e4159d353ac1436ad32f38bcdfb2b099855d9a486"
+      "sha256": "d2f3266fe56d20ca623d16de6a42a3459d3c1d52702729e49f0340d64bd1862e"
     },
     {
       "path": "README.ja.md",
-      "sha256": "1b6594366d63f2acbef1283981570a199f6af9f5563cee6c78abcad5fcea6dc1"
+      "sha256": "aeb167a9a2851b454ebf4784c61375b324f48967a92bfea038278475430bd66b"
     }
   ],
   "document_sets": [
@@ -205,5 +205,15 @@
         "sha256": "f9d1570cf69ab255566d6b096273a26f73daf16c76612401524623612332f3d3"
       }
     }
-  ]
+  ],
+  "homepage_banner": {
+    "path": "docs/assets/sc26-multi-gpu-banner.png",
+    "sha256": "edbbd6fb1856e47ddd1a6fbc748eb0a8a54573804ab3f82e6c64c0d5b51347fe",
+    "bytes": 2479635,
+    "dimensions": [
+      2172,
+      724
+    ],
+    "note": "User-provided PNG preserved byte for byte; used in all three root READMEs."
+  }
 }

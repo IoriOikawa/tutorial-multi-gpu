@@ -1,3 +1,5 @@
+![SC26 マルチ GPU プログラミングの学習バナー。ノートパソコンを使う人物と、JUPITER スーパーコンピュータのラックが描かれています。](docs/assets/sc26-multi-gpu-banner.png)
+
 # SC26 チュートリアル：エクサスケールに向けた効率的な分散 GPU プログラミング
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
@@ -51,5 +53,11 @@
 8. 講義：CUDA Graph と、NCCL・NVSHMEM を使うデバイス側からの通信。担当：Oded。
 9. 演習：NVSHMEM と NCCL を使うデバイス側からの通信。
 10. 講義：まとめと発展的な話題の紹介。担当：Andreas。
+
+## 謝辞
+
+本プロジェクトは、シカゴの SC26 で開催された **Efficient Distributed GPU Programming for Exascale** チュートリアルを基にしています。このチュートリアルには、Jülich Supercomputing Centre、NVIDIA、Sandia National Laboratories、University of Hagen に所属する研究者が貢献しています。
+
+JUPITER スーパーコンピュータで実験を行う機会を提供してくださったチュートリアルの講師の皆さまと Jülich Supercomputing Centre に、心より感謝します。
 
 [^1]: 通常は JUPITER を使います。講師から予備の JUWELS Booster に切り替えるよう案内があった場合は、[JUWELS Booster の Jupyter インスタンス](https://jupyter.jsc.fz-juelich.de/workshops/sc26mg-juwels)を作成してください。

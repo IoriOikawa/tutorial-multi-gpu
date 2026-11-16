@@ -1,3 +1,5 @@
+![SC26 multi-GPU programming study banner: an illustrated character uses a laptop beside JUPITER supercomputer racks.](docs/assets/sc26-multi-gpu-banner.png)
+
 # SC26 Tutorial: Efficient Distributed GPU Programming for Exascale
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
@@ -52,5 +54,11 @@ Overview (only possible on-site at SC26!):
 8. Lecture: CUDA Graphs and Device-initiated Communication with NCCL and NVSHMEM *Oded*
 9. Hands-on: Device-initiated Communication with NVSHMEM and NCCL
 10. Lecture: Conclusion and Outline of Advanced Topics *Andreas*
+
+## Acknowledgements
+
+This project builds upon the **Efficient Distributed GPU Programming for Exascale** tutorial presented at SC26 in Chicago, with contributions from researchers at Jülich Supercomputing Centre, NVIDIA, Sandia National Laboratories, and the University of Hagen.
+
+Special thanks to the tutorial instructors and the Jülich Supercomputing Centre for the opportunity to conduct experiments on the JUPITER supercomputer.
 
 [^1]: JUPITER is the default. In the case the tutors tell to move to the backup (JUWELS Booster), launch a [new Jupyter instance here](https://jupyter.jsc.fz-juelich.de/workshops/sc26mg-juwels).

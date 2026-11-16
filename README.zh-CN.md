@@ -1,3 +1,5 @@
+![SC26 多 GPU 编程学习横幅：人物使用笔记本电脑，旁边是 JUPITER 超级计算机的机柜。](docs/assets/sc26-multi-gpu-banner.png)
+
 # SC26 教程：面向 Exascale 的高效分布式 GPU 编程
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
@@ -51,5 +53,11 @@
 8. 讲授：CUDA Graph 及使用 NCCL、NVSHMEM 的设备发起通信。讲师：Oded。
 9. 练习：使用 NVSHMEM 和 NCCL 的设备发起通信。
 10. 讲授：总结与进阶主题概览。讲师：Andreas。
+
+## 致谢
+
+本项目基于在芝加哥 SC26 会议上讲授的 **Efficient Distributed GPU Programming for Exascale** 教程。该教程凝聚了来自 Jülich Supercomputing Centre、NVIDIA、Sandia National Laboratories 和 University of Hagen 的研究人员的贡献。
+
+特别感谢教程讲师和 Jülich Supercomputing Centre，让我们有机会在 JUPITER 超级计算机上开展实验。
 
 [^1]: 默认使用 JUPITER。如果讲师要求切换到备用的 JUWELS Booster，请创建 [JUWELS Booster Jupyter 实例](https://jupyter.jsc.fz-juelich.de/workshops/sc26mg-juwels)。
